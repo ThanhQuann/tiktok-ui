@@ -9,6 +9,11 @@ import {
     UserGroupIcon,
     LiveIcon,
     LiveActiveIcon,
+    ExploreIcon,
+    ExploreActiveIcon,
+    FriendIcon,
+    FriendActionIcon,
+    Profile,
 } from '~/components/Icons';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 const cx = classNames.bind(styles);
@@ -23,7 +28,12 @@ function Sidebar() {
                         icon={<HomeIcon />}
                         activeIcon={<HomeActiveIcon />}
                     />
-
+                    <MenuItem
+                        title="Explore"
+                        to={config.routes.explore}
+                        icon={<ExploreIcon />}
+                        activeIcon={<ExploreActiveIcon />}
+                    />
                     <MenuItem
                         title="Following"
                         to={config.routes.following}
@@ -31,21 +41,23 @@ function Sidebar() {
                         activeIcon={<UserGroupActiveIcon />}
                     />
                     <MenuItem
+                        title="Friends"
+                        to={config.routes.friend}
+                        icon={<FriendIcon />}
+                        activeIcon={<FriendActionIcon />}
+                    />
+                    <MenuItem
                         title="LIVE"
                         to={config.routes.live}
                         icon={<LiveIcon />}
                         activeIcon={<LiveActiveIcon />}
                     />
+                    <MenuItem title="Profile" className={cx('avatar')} to={config.routes.profile} icon={<Profile />} activeIcon={<Profile />} />
                 </Menu>
             }
-                <SuggestedAccounts label='Suggested accounts'/>
-                <SuggestedAccounts label='Following accounts'/>
-
-
+            <SuggestedAccounts label="Following accounts" />
         </aside>
-        
     );
-    
 }
 
 export default Sidebar;

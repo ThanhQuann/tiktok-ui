@@ -1,6 +1,12 @@
 .wrapper{
-   margin-top: 70px;
-   width: 356px;
+   position: fixed;
+   margin-top: 60px;
+   width: 224px;
    padding: 20px 0 26px 8px;
-   margin-left: 6px;
+   height: 100vh;
+}
+.avatar{
+   margin-left: 0;
+   margin-top: 0;
+   padding: 4px;
 }

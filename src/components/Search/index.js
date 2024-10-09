@@ -51,7 +51,7 @@ function Search() {
 
     return (
         //Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
-        <div>
+        <div style={{padding:"0 8px"}}>
             <Headless
                 interactive
                 visible={showResult && searchResult.length > 0}
@@ -72,7 +72,7 @@ function Search() {
                         ref={inputRef}
                         value={searchValue}
                         type="text"
-                        placeholder="Search account and videos"
+                        placeholder="Search"
                         spellCheck={false}
                         onChange={handleChange}
                         onFocus={() => setShowResult(true)}
@@ -84,7 +84,7 @@ function Search() {
                     )}
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                        <SearchIcon />
+                        <SearchIcon  className={cx('search-icon')}/>
                     </button>
                 </div>
             </Headless>

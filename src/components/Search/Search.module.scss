@@ -1,8 +1,8 @@
-.search-title{
-
+.search-title {
 }
-.search,.search-result {
-    width: 361px;
+.search,
+.search-result {
+    width: 500px;
 }
 .loading,
 .clear {
@@ -12,20 +12,19 @@
     transform: translateY(-50%);
     color: rgba(22, 24, 35, 0.34);
 }
-.loading{
+.loading {
     animation: spinner 1s linear infinite;
 }
 @keyframes spinner {
-    from{
+    from {
         transform: translateY(-50%) rotate(0);
-
     }
-    to{
+    to {
         transform: translateY(-50%) rotate(360deg);
-
     }
 }
 .search {
+    margin-left: 175px;
     position: relative;
     height: var(--search-height);
     padding-left: 16px;
@@ -38,27 +37,30 @@
         flex: 1;
         height: 100%;
         color: var(--black);
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         caret-color: var(--primary);
         background: transparent;
         font-family: TikTokFont;
+        font-weight: 500;
     }
     input:not(:placeholder-shown) ~ .search-btn {
         color: rgba(22, 24, 35, 0.75);
     }
-    &::after{
-        content:'';
+    &::after {
+        content: '';
         position: absolute;
-        top: var(--search-top-spacer);
-        right:var(--search-button-width);
+        top: 10px;
+        right: 52px;
         width: 1px;
-        height: calc(var(--search-height) - var(--search-top-spacer) *2);
+        height: 28px;
         background-color: rgba(22, 24, 35, 0.12);
-
     }
-    &:focus-within{
+    &:focus-within {
         border-color: rgba(22, 24, 35, 0.2);
-        ;
+    }
+    &-icon {
+        margin-left: -4px;
+        margin-top: 5px;
     }
 }
 

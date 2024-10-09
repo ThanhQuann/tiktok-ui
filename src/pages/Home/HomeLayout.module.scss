@@ -1,0 +1,84 @@
+.video-home {
+    width: 460px;
+    height: 819px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        .active-volume {
+            display: block;
+        }
+    }
+}
+.video-container {
+    position: relative; // Để định vị thông tin
+}
+
+.video-info {
+    position: absolute;
+    cursor: pointer;
+
+    bottom: 17px;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 10px; // Khoảng cách giữa chữ và viền
+    display: grid; /* Sử dụng grid */
+    grid-template-columns: 1fr; /* Một cột */
+    grid-gap: 12px;
+}
+
+.video-author {
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.video-desc {
+    font-size: 14px;
+    line-height: 18px;
+    white-space: pre-wrap;
+    bottom: 20px;
+}
+
+.video-music {
+    font-size: 14px; // Kích thước chữ cho nhạc nền
+    margin: 0; // Loại bỏ margin
+    color: rgba(255, 255, 255, 0.8);
+}
+.volume-controls {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    display: flex;
+}
+
+.mute-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
+}
+
+.volume-slider {
+    position: absolute;
+    left: 40px;
+    width: 48px;
+    appearance: none;
+    top: 11px;
+    background-color: rgb(255, 255, 255);
+    height: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+}
