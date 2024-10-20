@@ -25,16 +25,51 @@ function AccountItem() {
                         className={cx('avatar')}
                         loading="lazy"
                         alt=""
-                        src="https://p9-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/aae8d4e0d8c63731b164fc425bc887d7.jpeg?lk3s=30310797&amp;nonce=2904&amp;refresh_token=30232283f748e56f988ad0638fb3cc34&amp;x-expires=1726714800&amp;x-signature=5fSkM%2FYEnXsb6KpjWKPdmowbJ7o%3D&amp;shp=30310797&amp;shcp=-"
+                        src="https://randomuser.me/api/portraits/men/1.jpg"
                     />
-                        
-                   
+
                     <div className={cx('item-info')}>
                         <h4 className={cx('nickname')}>
-                            <strong>Nguyen Van A</strong>
+                            <strong>Pho Hong Tuyet</strong>
                             <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
                         </h4>
-                        <div className={cx('name')}>Nguyen Van A</div>
+                        <div className={cx('name')}>Pho Hong Tuyet</div>
+                    </div>
+                </div>
+            </Tippy>
+            <Tippy interactive delay={[800, 0]} offset={[-20, 0]} render={renderPreview} placement="bottom">
+                <div className={cx('account-item')}>
+                    <img
+                        className={cx('avatar')}
+                        loading="lazy"
+                        alt=""
+                        src="https://randomuser.me/api/portraits/men/3.jpg"
+                    />
+
+                    <div className={cx('item-info')}>
+                        <h4 className={cx('nickname')}>
+                            <strong>Mi Nguyet Tam</strong>
+                            <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                        </h4>
+                        <div className={cx('name')}>Mi Nguyet Tam</div>
+                    </div>
+                </div>
+            </Tippy>
+            <Tippy interactive delay={[800, 0]} offset={[-20, 0]} render={renderPreview} placement="bottom">
+                <div className={cx('account-item')}>
+                    <img
+                        className={cx('avatar')}
+                        loading="lazy"
+                        alt=""
+                        src="https://randomuser.me/api/portraits/men/4.jpg"
+                    />
+
+                    <div className={cx('item-info')}>
+                        <h4 className={cx('nickname')}>
+                            <strong>Tieu Ly Phi Dao</strong>
+                            <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                        </h4>
+                        <div className={cx('name')}>Tieu Ly Phi Dao</div>
                     </div>
                 </div>
             </Tippy>

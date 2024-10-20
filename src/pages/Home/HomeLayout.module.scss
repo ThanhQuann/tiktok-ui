@@ -1,61 +1,70 @@
-.video-home {
+html,
+body {
+    overflow-x: hidden;
+}
+
+.video-container {
+    position: relative;
     width: 460px;
     height: 819px;
-    border-radius: 12px;
     margin-bottom: 30px;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    &:hover {
-        .active-volume {
-            display: block;
-        }
-    }
 }
-.video-container {
-    position: relative; // Để định vị thông tin
+
+.video-home {
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    border-radius: 14px;
 }
 
 .video-info {
     position: absolute;
-    cursor: pointer;
-
-    bottom: 17px;
+    bottom: 20px;
     color: rgba(255, 255, 255, 0.9);
-    padding: 10px; // Khoảng cách giữa chữ và viền
-    display: grid; /* Sử dụng grid */
-    grid-template-columns: 1fr; /* Một cột */
-    grid-gap: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
 }
 
 .video-author {
     font-size: 14px;
-
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255);
 }
 
 .video-desc {
+    width: 100%;
     font-size: 14px;
     line-height: 18px;
     white-space: pre-wrap;
     bottom: 20px;
+    pointer-events: none;
 }
 
 .video-music {
-    font-size: 14px; // Kích thước chữ cho nhạc nền
-    margin: 0; // Loại bỏ margin
-    color: rgba(255, 255, 255, 0.8);
-}
-.volume-controls {
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    display: flex;
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255, 255, 255);
 }
 
-.mute-button {
+.Control-Volume__container {
+    position: absolute;
+    width: 64px;
+    height: 24px;
+    background: rgba(22, 24, 35, 0.34);
+    border-radius: 32px;
+    left: 40px;
+    top: 12px;
+}
+
+.volume-icon {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    display: flex;
+    z-index: 2;
     background: none;
     border: none;
     font-size: 24px;
@@ -63,9 +72,18 @@
     color: rgba(255, 255, 255, 1);
 }
 
+.volume-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -10px;
+    right: -10px;
+    bottom: -2px;
+    cursor: pointer;
+}
+
 .volume-slider {
     position: absolute;
-    left: 40px;
     width: 48px;
     appearance: none;
     top: 11px;
@@ -73,6 +91,7 @@
     height: 2px;
     outline: none;
     cursor: pointer;
+    left: 7px;
 }
 
 .volume-slider::-webkit-slider-thumb {
@@ -81,4 +100,135 @@
     height: 12px;
     background: white;
     border-radius: 50%;
+}
+
+.media-control__top {
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    top: 1px;
+    left: 0;
+    pointer-events: none;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 12%,
+        rgba(0, 0, 0, 0.01) 21%,
+        rgba(0, 0, 0, 0.02) 29%,
+        rgba(0, 0, 0, 0.03) 35%,
+        rgba(0, 0, 0, 0.04) 40%,
+        rgba(0, 0, 0, 0.06) 45%,
+        rgba(0, 0, 0, 0.08) 48%,
+        rgba(0, 0, 0, 0.1) 52%,
+        rgba(0, 0, 0, 0.12) 55%,
+        rgba(0, 0, 0, 0.14) 60%,
+        rgba(0, 0, 0, 0.16) 65%,
+        rgba(0, 0, 0, 0.18) 71%,
+        rgba(0, 0, 0, 0.2) 79%,
+        rgba(0, 0, 0, 0.22) 88%,
+        rgba(0, 0, 0, 0.24) 100%
+    );
+}
+
+.control-ellipsis {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.control-floating {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.progress-bar::-webkit-slider-runnable-track {
+    background: #d3d3d3;
+    height: 4px;
+    border-radius: 5px;
+}
+
+.progress-bar::-moz-range-track {
+    background: #d3d3d3;
+    height: 4px;
+    border-radius: 5px;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4px;
+}
+
+.progress-bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #d3d3d3;
+    -webkit-appearance: none;
+    appearance: none;
+    bottom: 0px;
+    margin-top: 10px;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4px;
+}
+
+.progress-controls {
+    position: absolute;
+    bottom: 0px;
+    left: 2px;
+    right: -2px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    border-radius: 16px;
+    &:hover {
+        .progress-bar {
+            height: 6px;
+            background-color: #d3d3d3;
+            cursor: pointer;
+            transition: height 150ms ease-in-out;
+        }
+    }
+}
+
+.progress-bar {
+    width: calc(100% - 6px);
+    height: 4px;
+    background-color: #d3d3d3;
+    pointer-events: all;
+    border-radius: 14px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -4px;
 }

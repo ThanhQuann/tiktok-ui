@@ -1,17 +1,17 @@
 .wrapper {
     border-top: 1px solid #e3e3e4;
+    margin: 8px 0 8px 8px;
 }
-.label{
+.label {
     font-size: 1.4rem;
     padding: 8px;
-    font-weight:600;
-    color:rgba(22, 24, 35, 0.75)
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.75);
 }
 .account-item {
     display: flex;
     padding: 8px;
     cursor: pointer;
-
 }
 .avatar {
     width: 32px;
@@ -22,13 +22,13 @@
 .item-info {
     flex: 1;
     margin-left: 12px;
-
 }
 .nickname {
     margin-top: 0;
     font-size: 1.6rem;
     color: #161823;
     line-height: 1;
+    width: 100%;
 }
 .check {
     margin-left: 4px;
@@ -39,10 +39,56 @@
     font-size: 1.2rem;
     opacity: #161823fa;
 }
-.more-btn{
+.more-btn {
     font-size: 1.4rem;
-    color:#fe2c55;
+    color: #fe2c55;
     padding: 8px;
     font-weight: 700;
     cursor: pointer;
+}
+
+.img-reward {
+    position: relative;
+}
+.holdergram {
+    padding-top: 8px;
+    padding-left: 8px;
+}
+
+.title-reward {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    left: 11px;
+    width: 141px;
+    height: 32px;
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    line-height: 16px;
+}
+.links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.title-link {
+    font-size: 15px;
+    line-height: 22px;
+    cursor: pointer;
+    color: rgba(22, 24, 35, 0.5);
+    font-family: TikTokDisplayFont;
+    font-weight: 700;
+}
+.span-copyright {
+    color: rgba(22, 24, 35, 0.5);
+    font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
 }

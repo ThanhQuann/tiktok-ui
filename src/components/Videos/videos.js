@@ -1,3 +1,13 @@
+
+// Hàm để định dạng số lớn hơn 1000
+const formatNumber = (number) => {
+    return number > 999999
+        ? parseFloat((number / 1000000).toFixed(1)) + 'M'
+        : number > 9999
+        ? parseFloat((number / 1000).toFixed(1)) + 'K'
+        : number;
+};
+
 const videos = [
     {
         id: 1,
@@ -5,11 +15,14 @@ const videos = [
         author: 'legiang',
         desc: 'Một ngày đẹp trời bên cạnh những người bạn thân thiết.',
         music: 'Nhạc nền - hongloan19930',
-        likes: 500,
-        hearts: 150,  // Số lượt thả tim
-        comments: 20,
-        shares: 30,
-        avatar: 'https://example.com/avatar1.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/men/1.jpg',
+            alt: 'Avatar 1',
+        },
+        hearts: formatNumber(1234567),
+        comments: formatNumber(209989),
+        likes: formatNumber(500000),
+        shares: formatNumber(367894),
     },
     {
         id: 2,
@@ -17,11 +30,14 @@ const videos = [
         author: 'thanhquan',
         desc: 'Khám phá vẻ đẹp của thiên nhiên trong từng khung hình.',
         music: 'Nhạc nền - nhacxua',
-        likes: 620,
-        hearts: 180,
-        comments: 35,
-        shares: 25,
-        avatar: 'https://example.com/avatar2.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/women/1.jpg',
+            alt: 'Avatar 2',
+        },
+        hearts: formatNumber(118089),
+        comments: formatNumber(103589),
+        likes: formatNumber(162090),
+        shares: formatNumber(102565),
     },
     {
         id: 3,
@@ -29,11 +45,14 @@ const videos = [
         author: 'giangdethuong',
         desc: 'Những khoảnh khắc tuyệt vời bên gia đình.',
         music: 'Nhạc nền - yeuthuong',
-        likes: 320,
-        hearts: 90,
-        comments: 12,
-        shares: 15,
-        avatar: 'https://example.com/avatar3.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/men/2.jpg',
+            alt: 'Avatar 3',
+        },
+        hearts: formatNumber(90234),
+        comments: formatNumber(12345),
+        likes: formatNumber(323042),
+        shares: formatNumber(15111),
     },
     {
         id: 4,
@@ -41,11 +60,14 @@ const videos = [
         author: 'giangxinhdep',
         desc: 'Bước nhảy tuyệt đẹp của những vũ công chuyên nghiệp.',
         music: 'Nhạc nền - dapchunhieu',
-        likes: 400,
-        hearts: 120,
-        comments: 18,
-        shares: 22,
-        avatar: 'https://example.com/avatar4.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/women/2.jpg',
+            alt: 'Avatar 4',
+        },
+        hearts: formatNumber(13203),
+        comments: formatNumber(10181),
+        likes: formatNumber(14341),
+        shares: formatNumber(12223),
     },
     {
         id: 5,
@@ -53,11 +75,14 @@ const videos = [
         author: 'giangvuto',
         desc: 'Chia sẻ những bí quyết nấu ăn đơn giản và ngon.',
         music: 'Nhạc nền - amthuc',
-        likes: 700,
-        hearts: 300,
-        comments: 50,
-        shares: 40,
-        avatar: 'https://example.com/avatar5.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/men/3.jpg',
+            alt: 'Avatar 5',
+        },
+        hearts: formatNumber(1300),
+        comments: formatNumber(1050),
+        likes: formatNumber(17000),
+        shares: formatNumber(1100),
     },
     {
         id: 6,
@@ -65,11 +90,14 @@ const videos = [
         author: 'giangkute',
         desc: 'Đi dạo trên bãi biển trong ánh hoàng hôn.',
         music: 'Nhạc nền - thiennhien',
-        likes: 450,
-        hearts: 200,
-        comments: 30,
-        shares: 28,
-        avatar: 'https://example.com/avatar6.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/women/3.jpg',
+            alt: 'Avatar 6',
+        },
+        hearts: formatNumber(1200),
+        comments: formatNumber(1030),
+        likes: formatNumber(1450),
+        shares: formatNumber(1000),
     },
     {
         id: 7,
@@ -77,11 +105,14 @@ const videos = [
         author: 'giangngucto',
         desc: 'Chuyến phiêu lưu khám phá các địa điểm thú vị.',
         music: 'Nhạc nền - phieuluu',
-        likes: 550,
-        hearts: 250,
-        comments: 40,
-        shares: 35,
-        avatar: 'https://example.com/avatar7.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/men/4.jpg',
+            alt: 'Avatar 7',
+        },
+        hearts: formatNumber(1250),
+        comments: formatNumber(1040),
+        likes: formatNumber(1550),
+        shares: formatNumber(1035),
     },
     {
         id: 8,
@@ -89,11 +120,14 @@ const videos = [
         author: 'nguyendinh',
         desc: 'Những câu chuyện thú vị từ cuộc sống hàng ngày.',
         music: 'Nhạc nền - cuocsong',
-        likes: 310,
-        hearts: 80,
-        comments: 10,
-        shares: 20,
-        avatar: 'https://example.com/avatar8.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/women/4.jpg',
+            alt: 'Avatar 8',
+        },
+        hearts: formatNumber(80),
+        comments: formatNumber(10),
+        likes: formatNumber(310),
+        shares: formatNumber(20),
     },
     {
         id: 9,
@@ -101,11 +135,14 @@ const videos = [
         author: 'minhha',
         desc: 'Hành trình đi bộ đường dài và ngắm nhìn cảnh đẹp.',
         music: 'Nhạc nền - duongda',
-        likes: 520,
-        hearts: 175,
-        comments: 25,
-        shares: 32,
-        avatar: 'https://example.com/avatar9.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/men/5.jpg',
+            alt: 'Avatar 9',
+        },
+        hearts: formatNumber(1175),
+        comments: formatNumber(1025),
+        likes: formatNumber(1520),
+        shares: formatNumber(1032),
     },
     {
         id: 10,
@@ -113,11 +150,15 @@ const videos = [
         author: 'tuananh',
         desc: 'Chia sẻ các mẹo trang trí nhà cửa độc đáo.',
         music: 'Nhạc nền - trangtri',
-        likes: 660,
-        hearts: 220,
-        comments: 28,
-        shares: 45,
-        avatar: 'https://example.com/avatar10.jpg',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/women/5.jpg',
+            alt: 'Avatar 10',
+        },
+        hearts: formatNumber(1220),
+        comments: formatNumber(1028),
+        likes: formatNumber(1660),
+        shares: formatNumber(1045),
     },
 ];
+
 export default videos;

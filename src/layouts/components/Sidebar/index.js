@@ -14,6 +14,7 @@ import {
     FriendIcon,
     FriendActionIcon,
     Profile,
+    MessageIcon,
 } from '~/components/Icons';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 const cx = classNames.bind(styles);
@@ -52,10 +53,23 @@ function Sidebar() {
                         icon={<LiveIcon />}
                         activeIcon={<LiveActiveIcon />}
                     />
-                    <MenuItem title="Profile" className={cx('avatar')} to={config.routes.profile} icon={<Profile />} activeIcon={<Profile />} />
+                    <MenuItem
+                        title="Messages"
+                        to={config.routes.messages}
+                        icon={<MessageIcon />}
+                        activeIcon={<MessageIcon />}
+                    />
+                    <MenuItem
+                        title="Profile"
+                        className={cx('avatar')}
+                        to={config.routes.profile}
+                        icon={<Profile />}
+                        activeIcon={<Profile />}
+                    />
                 </Menu>
             }
             <SuggestedAccounts label="Following accounts" />
+            
         </aside>
     );
 }
