@@ -26,7 +26,6 @@ function SuggestedAccounts({ label }) {
                     </a>
                 </div>
 
-                {/* Thêm ba thẻ a mới */}
                 <div className={cx('link')}>
                     <div className={cx('links')}>
                         <a href="#!" className={cx('link-item')}>

@@ -528,3 +528,277 @@ export const AddIcon = ({ width = '1.4rem', height = '1.4rem', className }) => (
         <path d="M26 7a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v15H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h15v15a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V26h15a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H26V7Z"></path>
     </svg>
 );
+export const UploadHomeIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconTabHome"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M23.05 7.84a1.5 1.5 0 0 1 1.9 0l16.1 13.2a1.5 1.5 0 0 1-.95 2.66h-2.33l-1.2 13.03A2.5 2.5 0 0 1 34.1 39H13.9a2.5 2.5 0 0 1-2.49-2.27L10.23 23.7H7.9a1.5 1.5 0 0 1-.95-2.66l16.1-13.2Zm.95 3.1L12.1 20.7h.87l1.4 15.3h8.13v-7.69a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1V36h8.13l1.4-15.3h.87L24 10.94Z"></path>
+    </svg>
+);
+export const UploadHomeIconActive = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconTabHome"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M23.05 7.84a1.5 1.5 0 0 1 1.9 0l16.1 13.2a1.5 1.5 0 0 1-.95 2.66h-2.33l-1.2 13.03A2.5 2.5 0 0 1 34.1 39H13.9a2.5 2.5 0 0 1-2.49-2.27L10.23 23.7H7.9a1.5 1.5 0 0 1-.95-2.66l16.1-13.2Zm.95 3.1L12.1 20.7h.87l1.4 15.3h8.13v-7.69a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1V36h8.13l1.4-15.3h.87L24 10.94Z"></path>
+    </svg>
+);
+export const HorizontalLineIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        width={width}
+        height={height}
+        className={className}
+        fill="currentColor"
+        data-tt="Sidebar_index_IconLinesHorizontalDecreaseAlt"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path d="M6 10a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H6Zm0 12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H6ZM5 35a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2Zm11-25a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h26a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H16Zm0 12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h26a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H16Zm-1 13a1 1 0 0 1 1-1h26a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H16a1 1 0 0 1-1-1v-2Z"></path>
+    </svg>
+);
+export const HorizontalLineIconActive = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconLinesHorizontalDecreaseAlt"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M6 10a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H6Zm0 12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H6ZM5 35a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2Zm11-25a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h26a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H16Zm0 12a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h26a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H16Zm-1 13a1 1 0 0 1 1-1h26a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H16a1 1 0 0 1-1-1v-2Z"></path>
+    </svg>
+);
+export const UploadCommentIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M24 7.5C14.62 7.5 7.5 13.79 7.5 21S14.62 34.5 24 34.5h3.5v3.98a35.74 35.74 0 0 0 7.67-5.9c3.1-3.21 5.33-7.1 5.33-11.58 0-7.21-7.12-13.5-16.5-13.5ZM4.5 21c0-9.36 9-16.5 19.5-16.5S43.5 11.64 43.5 21c0 5.53-2.77 10.13-6.17 13.67a40.15 40.15 0 0 1-10.66 7.67A1.5 1.5 0 0 1 24.5 41v-3.5H24C13.5 37.5 4.5 30.36 4.5 21Z"></path>
+        <path d="M17 21.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM27 21.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM37 21.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path>
+    </svg>
+);
+export const UploadCommentIconActive = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M24 7.5C14.62 7.5 7.5 13.79 7.5 21S14.62 34.5 24 34.5h3.5v3.98a35.74 35.74 0 0 0 7.67-5.9c3.1-3.21 5.33-7.1 5.33-11.58 0-7.21-7.12-13.5-16.5-13.5ZM4.5 21c0-9.36 9-16.5 19.5-16.5S43.5 11.64 43.5 21c0 5.53-2.77 10.13-6.17 13.67a40.15 40.15 0 0 1-10.66 7.67A1.5 1.5 0 0 1 24.5 41v-3.5H24C13.5 37.5 4.5 30.36 4.5 21Z"></path>
+        <path d="M17 21.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM27 21.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM37 21.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path>
+    </svg>
+);
+export const LineChartIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconLineChart"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M8.72 30.47a1 1 0 0 1 0-1.42l9.45-9.45a1 1 0 0 1 1.42 0l2.12 2.12 3.74 3.75 5.58-5.58-2.4-2.4a.6.6 0 0 1 .34-1.03l8.78-1.4a.82.82 0 0 1 .94.93l-1.4 8.79a.6.6 0 0 1-1.03.33l-2.4-2.4-7.7 7.71a1 1 0 0 1-1.42 0l-5.87-5.86-7.32 7.32a1 1 0 0 1-1.41 0l-1.42-1.41Z"></path>
+        <path d="M2 18.2c0-3.92 0-5.88.76-7.38a7 7 0 0 1 3.06-3.06C7.32 7 9.28 7 13.2 7h21.6c3.92 0 5.88 0 7.38.76a7 7 0 0 1 3.06 3.06c.76 1.5.76 3.46.76 7.38v11.6c0 3.92 0 5.88-.76 7.38a7 7 0 0 1-3.06 3.06c-1.5.76-3.46.76-7.38.76H13.2c-3.92 0-5.88 0-7.38-.76a7 7 0 0 1-3.06-3.06C2 35.68 2 33.72 2 29.8V18.2ZM13.2 11c-2.03 0-3.3 0-4.27.08-.92.08-1.2.2-1.3.25a3 3 0 0 0-1.3 1.3c-.05.1-.17.38-.25 1.3C6 14.9 6 16.17 6 18.2v11.6c0 2.03 0 3.3.08 4.27.08.92.2 1.2.25 1.3a3 3 0 0 0 1.3 1.3c.1.05.38.17 1.3.25.96.08 2.24.08 4.27.08h21.6c2.03 0 3.3 0 4.27-.08a3.6 3.6 0 0 0 1.3-.25 3 3 0 0 0 1.3-1.3c.05-.1.17-.38.25-1.3.08-.96.08-2.24.08-4.27V18.2c0-2.03 0-3.3-.08-4.27-.08-.92-.2-1.2-.25-1.3a3 3 0 0 0-1.3-1.3c-.1-.05-.38-.17-1.3-.25-.96-.08-2.24-.08-4.27-.08H13.2Z"></path>
+    </svg>
+);
+export const LineChartIconActive = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconLineChart"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M8.72 30.47a1 1 0 0 1 0-1.42l9.45-9.45a1 1 0 0 1 1.42 0l2.12 2.12 3.74 3.75 5.58-5.58-2.4-2.4a.6.6 0 0 1 .34-1.03l8.78-1.4a.82.82 0 0 1 .94.93l-1.4 8.79a.6.6 0 0 1-1.03.33l-2.4-2.4-7.7 7.71a1 1 0 0 1-1.42 0l-5.87-5.86-7.32 7.32a1 1 0 0 1-1.41 0l-1.42-1.41Z"></path>
+        <path d="M2 18.2c0-3.92 0-5.88.76-7.38a7 7 0 0 1 3.06-3.06C7.32 7 9.28 7 13.2 7h21.6c3.92 0 5.88 0 7.38.76a7 7 0 0 1 3.06 3.06c.76 1.5.76 3.46.76 7.38v11.6c0 3.92 0 5.88-.76 7.38a7 7 0 0 1-3.06 3.06c-1.5.76-3.46.76-7.38.76H13.2c-3.92 0-5.88 0-7.38-.76a7 7 0 0 1-3.06-3.06C2 35.68 2 33.72 2 29.8V18.2ZM13.2 11c-2.03 0-3.3 0-4.27.08-.92.08-1.2.2-1.3.25a3 3 0 0 0-1.3 1.3c-.05.1-.17.38-.25 1.3C6 14.9 6 16.17 6 18.2v11.6c0 2.03 0 3.3.08 4.27.08.92.2 1.2.25 1.3a3 3 0 0 0 1.3 1.3c.1.05.38.17 1.3.25.96.08 2.24.08 4.27.08h21.6c2.03 0 3.3 0 4.27-.08a3.6 3.6 0 0 0 1.3-.25 3 3 0 0 0 1.3-1.3c.05-.1.17-.38.25-1.3.08-.96.08-2.24.08-4.27V18.2c0-2.03 0-3.3-.08-4.27-.08-.92-.2-1.2-.25-1.3a3 3 0 0 0-1.3-1.3c-.1-.05-.38-.17-1.3-.25-.96-.08-2.24-.08-4.27-.08H13.2Z"></path>
+    </svg>
+);
+export const InheritIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        color="inherit"
+        fontSize="inherit"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M14.8 9.68a1.2 1.2 0 0 1-1.63-.44l-1.8-3.12a1.2 1.2 0 0 1 .44-1.64l1.38-.8a1.2 1.2 0 0 1 1.64.44l1.8 3.12c.33.58.14 1.3-.44 1.64l-1.38.8Zm-2.54 17.18a11.6 11.6 0 1 1 20.63-1.06l2.5 4.33a2 2 0 0 1-.73 2.73l-8.32 4.8a2 2 0 0 1-2.73-.73l-2.5-4.33a11.59 11.59 0 0 1-8.85-5.74Zm6.24-12.38a7.6 7.6 0 0 0 3.8 14.18 2 2 0 0 1 1.73 1l2.05 3.54 4.85-2.8-2.05-3.54a2 2 0 0 1 0-2A7.6 7.6 0 0 0 18.5 14.48Zm-9.35 2.1a1.2 1.2 0 0 1-1.47.85L4.2 16.5a1.2 1.2 0 0 1-.84-1.47l.41-1.54a1.2 1.2 0 0 1 1.47-.85l3.48.93c.64.17 1.02.83.85 1.47l-.42 1.55Zm14.07-9.62a1.2 1.2 0 0 1-.85-1.47L23.31 2a1.2 1.2 0 0 1 1.47-.85l1.54.42c.64.17 1.02.83.85 1.47l-.93 3.47a1.2 1.2 0 0 1-1.47.85l-1.55-.41Zm3.62 32.96a1.2 1.2 0 0 1 .44-1.64l7.27-4.2a1.2 1.2 0 0 1 1.64.44l.8 1.38c.33.58.14 1.31-.44 1.64l-7.27 4.2a1.2 1.2 0 0 1-1.64-.44l-.8-1.38Zm4.23 3.33a1.2 1.2 0 0 1 .44-1.64l3.98-2.3a1.2 1.2 0 0 1 1.64.44l.8 1.38c.33.58.14 1.31-.44 1.64l-3.98 2.3a1.2 1.2 0 0 1-1.64-.44l-.8-1.38Zm2.86-37.32a1.2 1.2 0 0 1 1.7 0l1.13 1.13a1.2 1.2 0 0 1 0 1.7L34.2 11.3a1.2 1.2 0 0 1-1.7 0l-1.13-1.13a1.2 1.2 0 0 1 0-1.7l2.55-2.54Zm-29 22.36a1.2 1.2 0 0 1-1.47-.85l-.41-1.55c-.18-.64.2-1.3.84-1.47l3.48-.93c.64-.17 1.3.21 1.47.85l.42 1.55c.17.64-.21 1.3-.85 1.47l-3.48.93Z"></path>
+    </svg>
+);
+export const InheritIconActive = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        color="inherit"
+        fontSize="inherit"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M14.8 9.68a1.2 1.2 0 0 1-1.63-.44l-1.8-3.12a1.2 1.2 0 0 1 .44-1.64l1.38-.8a1.2 1.2 0 0 1 1.64.44l1.8 3.12c.33.58.14 1.3-.44 1.64l-1.38.8Zm-2.54 17.18a11.6 11.6 0 1 1 20.63-1.06l2.5 4.33a2 2 0 0 1-.73 2.73l-8.32 4.8a2 2 0 0 1-2.73-.73l-2.5-4.33a11.59 11.59 0 0 1-8.85-5.74Zm6.24-12.38a7.6 7.6 0 0 0 3.8 14.18 2 2 0 0 1 1.73 1l2.05 3.54 4.85-2.8-2.05-3.54a2 2 0 0 1 0-2A7.6 7.6 0 0 0 18.5 14.48Zm-9.35 2.1a1.2 1.2 0 0 1-1.47.85L4.2 16.5a1.2 1.2 0 0 1-.84-1.47l.41-1.54a1.2 1.2 0 0 1 1.47-.85l3.48.93c.64.17 1.02.83.85 1.47l-.42 1.55Zm14.07-9.62a1.2 1.2 0 0 1-.85-1.47L23.31 2a1.2 1.2 0 0 1 1.47-.85l1.54.42c.64.17 1.02.83.85 1.47l-.93 3.47a1.2 1.2 0 0 1-1.47.85l-1.55-.41Zm3.62 32.96a1.2 1.2 0 0 1 .44-1.64l7.27-4.2a1.2 1.2 0 0 1 1.64.44l.8 1.38c.33.58.14 1.31-.44 1.64l-7.27 4.2a1.2 1.2 0 0 1-1.64-.44l-.8-1.38Zm4.23 3.33a1.2 1.2 0 0 1 .44-1.64l3.98-2.3a1.2 1.2 0 0 1 1.64.44l.8 1.38c.33.58.14 1.31-.44 1.64l-3.98 2.3a1.2 1.2 0 0 1-1.64-.44l-.8-1.38Zm2.86-37.32a1.2 1.2 0 0 1 1.7 0l1.13 1.13a1.2 1.2 0 0 1 0 1.7L34.2 11.3a1.2 1.2 0 0 1-1.7 0l-1.13-1.13a1.2 1.2 0 0 1 0-1.7l2.55-2.54Zm-29 22.36a1.2 1.2 0 0 1-1.47-.85l-.41-1.55c-.18-.64.2-1.3.84-1.47l3.48-.93c.64-.17 1.3.21 1.47.85l.42 1.55c.17.64-.21 1.3-.85 1.47l-3.48.93Z"></path>
+    </svg>
+);
+
+export const SoundIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        color="inherit"
+        fontSize="inherit"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M43 8.94a1 1 0 0 0-1.15-.99l-8 1.2a1 1 0 0 0-.85.99V29h-2.5a6.5 6.5 0 1 0 6.5 6.5V16.15a.5.5 0 0 1 .43-.5l4.89-.73a.8.8 0 0 0 .68-.79v-5.2ZM28 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v2Zm-5 8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h15a1 1 0 0 1 1 1v2Zm-6 8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v2Z"></path>
+    </svg>
+);
+export const SoundIconActive = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        color="inherit"
+        fontSize="inherit"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M43 8.94a1 1 0 0 0-1.15-.99l-8 1.2a1 1 0 0 0-.85.99V29h-2.5a6.5 6.5 0 1 0 6.5 6.5V16.15a.5.5 0 0 1 .43-.5l4.89-.73a.8.8 0 0 0 .68-.79v-5.2ZM28 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v2Zm-5 8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h15a1 1 0 0 1 1 1v2Zm-6 8a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v2Z"></path>
+    </svg>
+);
+
+export const CreatorIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconBookStar"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M14 4a7 7 0 0 0-7 7v26.5a6.5 6.5 0 0 0 6.5 6.5H39a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H14Zm-.5 27c-.89 0-1.73.18-2.5.5V11a3 3 0 0 1 3-3h23v23H13.5Zm0 4H37v5H13.5a2.5 2.5 0 0 1 0-5Zm12.23-22.01a2 2 0 0 0-3.46 0l-1.5 2.57-2.9.63a2 2 0 0 0-1.07 3.29l1.98 2.22-.3 2.96a2 2 0 0 0 2.8 2.03l2.72-1.2 2.72 1.2a2 2 0 0 0 2.8-2.03l-.3-2.96 1.98-2.22a2 2 0 0 0-1.06-3.3l-2.91-.62-1.5-2.57Zm-2.59 4.46.86-1.47.86 1.47a2 2 0 0 0 1.3.95l1.66.36-1.13 1.27a2 2 0 0 0-.5 1.53l.17 1.7-1.55-.7a2 2 0 0 0-1.62 0l-1.55.7.17-1.7a2 2 0 0 0-.5-1.53l-1.13-1.27 1.66-.36a2 2 0 0 0 1.3-.95Z"></path>
+    </svg>
+);
+
+export const FeedbackIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconQA"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M24.12 16.06c-.9 0-1.74.59-2.3 1.86-.1.25-.38.4-.64.31l-2.85-.95a.48.48 0 01-.3-.63c.9-2.28 2.86-4.59 6.09-4.59 3.33 0 6.02 2.7 6.02 6.03 0 1.94-1.18 3.54-2.4 4.56a7.76 7.76 0 01-4.13 1.78.47.47 0 01-.5-.48v-3c0-.27.23-.5.5-.56a4.07 4.07 0 001.57-.82c.74-.61.96-1.2.96-1.48 0-1.12-.9-2.03-2.02-2.03z"
+        ></path>
+        <path d="M26 28.06a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M4 9.25C4 6.9 5.9 5 8.25 5h31.5C42.1 5 44 6.9 44 9.25v23.63c0 2.34-1.9 4.24-4.25 4.24H14.7l-7.29 7.3A2 2 0 014 43V9.25zm4 28.92l4.46-4.46a2 2 0 011.41-.59h25.88c.14 0 .25-.1.25-.24V9.25a.25.25 0 00-.25-.25H8.25a.25.25 0 00-.25.25v28.92z"
+        ></path>
+    </svg>
+);
+export const FeedbackIconActive = ({ width = '2.4rem', height = '2.4rem', className }) => (
+    <svg
+        fill="currentColor"
+        data-tt="Sidebar_index_IconQA"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M24.12 16.06c-.9 0-1.74.59-2.3 1.86-.1.25-.38.4-.64.31l-2.85-.95a.48.48 0 01-.3-.63c.9-2.28 2.86-4.59 6.09-4.59 3.33 0 6.02 2.7 6.02 6.03 0 1.94-1.18 3.54-2.4 4.56a7.76 7.76 0 01-4.13 1.78.47.47 0 01-.5-.48v-3c0-.27.23-.5.5-.56a4.07 4.07 0 001.57-.82c.74-.61.96-1.2.96-1.48 0-1.12-.9-2.03-2.02-2.03z"
+        ></path>
+        <path d="M26 28.06a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M4 9.25C4 6.9 5.9 5 8.25 5h31.5C42.1 5 44 6.9 44 9.25v23.63c0 2.34-1.9 4.24-4.25 4.24H14.7l-7.29 7.3A2 2 0 014 43V9.25zm4 28.92l4.46-4.46a2 2 0 011.41-.59h25.88c.14 0 .25-.1.25-.24V9.25a.25.25 0 00-.25-.25H8.25a.25.25 0 00-.25.25v28.92z"
+        ></path>
+    </svg>
+);
+
+export const UploadVideoIcon = ({ width = '7.2rem', height = '7.2rem', className }) => (
+    <svg
+        fill="#a8a8a8"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M25.84 37h8.66a9.5 9.5 0 0 0 1.35-18.9A12 12 0 0 0 12 20v.01A8.5 8.5 0 0 0 12.5 37h10.34V25.6l-1.72 1.74a1 1 0 0 1-1.42 0l-.7-.7a1 1 0 0 1 0-1.41l4.4-4.4c.68-.76 1.22-.77 2 .08l4.28 4.32a1 1 0 0 1 0 1.4l-.7.72a1 1 0 0 1-1.42 0l-1.72-1.75V37Z"></path>
+    </svg>
+);
+
+export const ImageIcon = ({ width = '2.5rem', height = '2.4rem', className }) => (
+    <img
+        style={{ width, height }}
+        className={className}
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTggOS42MDQ4OUwyMi41OTE1IDYuNDYzNDVDMjMuMTg4OSA2LjA1NDc2IDIzLjk5OTggNi40ODI0OCAyMy45OTk4IDcuMjA2MjNWMTYuNzkzNkMyMy45OTk4IDE3LjUxNzQgMjMuMTg4OSAxNy45NDUxIDIyLjU5MTUgMTcuNTM2NEwxOC4wMDAyIDE0LjM5NUwxOC4wMDAxIDEyLjAwMDNMMjEuOTk5NSAxNC43MDg1VjkuMjkxOTlMMTguMDAwMSAxMi4wMDAzTDE4IDkuNjA0ODlaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjMyIi8+CiAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xIDYuNUMxIDQuODQzMTUgMi4zNDMxNSAzLjUgNCAzLjVIMTVDMTYuNjU2OSAzLjUgMTggNC44NDMxNSAxOCA2LjVWMTcuNUMxOCAxOS4xNTY5IDE2LjY1NjkgMjAuNSAxNSAyMC41SDRDMi4zNDMxNSAyMC41IDEgMTkuMTU2OSAxIDE3LjVWNi41Wk00IDUuNUgxNUMxNS41NTIzIDUuNSAxNiA1Ljk0NzcyIDE2IDYuNVYxNy41QzE2IDE4LjA1MjMgMTUuNTUyMyAxOC41IDE1IDE4LjVINEMzLjQ0NzcyIDE4LjUgMyAxOC4wNTIzIDMgMTcuNVY2LjVDMyA1Ljk0NzcyIDMuNDQ3NzIgNS41IDQgNS41WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4zMiIvPgo8L3N2Zz4K"
+        alt="Size and duration"
+    />
+);
+export const FileIcon = ({ width = '2.5rem', height = '2.4rem', className }) => (
+    <img
+        style={{ width, height }}
+        className={className}
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGQ9Ik02IDRDNS43MjM4NiA0IDUuNSA0LjIyMzg2IDUuNSA0LjVWMTkuNUM1LjUgMTkuNzc2MSA1LjcyMzg2IDIwIDYgMjBIMTlDMTkuMjc2MSAyMCAxOS41IDE5Ljc3NjEgMTkuNSAxOS41VjEwSDE0QzEzLjQ0NzcgMTAgMTMgOS41NTIyOCAxMyA5VjRINlpNMTUgNS4yODM5OFY4SDE3Ljk0MjNMMTUgNS4yODM5OFpNMy41IDQuNUMzLjUgMy4xMTkyOSA0LjYxOTI5IDIgNiAySDE0QzE0LjI1MTQgMiAxNC40OTM2IDIuMDk0NjggMTQuNjc4MyAyLjI2NTJMMjEuMTc4MyA4LjI2NTJDMjEuMzgzNCA4LjQ1NDUgMjEuNSA4LjcyMDkgMjEuNSA5VjE5LjVDMjEuNSAyMC44ODA3IDIwLjM4MDcgMjIgMTkgMjJINkM0LjYxOTI5IDIyIDMuNSAyMC44ODA3IDMuNSAxOS41VjQuNVoiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMzIiLz4KICA8cGF0aCBkPSJNMTQuNzgyNiAxMy40NDM2QzE1LjA3MjUgMTMuNjExIDE1LjA3MjUgMTQuMDI5MyAxNC43ODI2IDE0LjE5NjdMMTAuNjUyMiAxNi41ODE0QzEwLjM2MjMgMTYuNzQ4NyAxMCAxNi41Mzk1IDEwIDE2LjIwNDhWMTEuNDM1NEMxMCAxMS4xMDA3IDEwLjM2MjMgMTAuODkxNiAxMC42NTIyIDExLjA1ODlMMTQuNzgyNiAxMy40NDM2WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4zMiIvPgo8L3N2Zz4K"
+        alt="File formats"
+    />
+);
+export const ResolutionIcon = ({ width = '2.5rem', height = '2.4rem', className }) => (
+    <img
+        src="data:image/svg+xml;base64,
+        PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIKICB
+        4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGQ9Ik00IDJDMi42MTkyOSAyIDEuN
+        SAzLjExOTI5IDEuNSA0LjVWMTkuNUMxLjUgMjAuODgwNyAyLjYxOTI5IDIyIDQgMjJIMjFDMjIuMzgwNyAyMiAyMy41IDIwLjg4MDcgMjMuNSAxOS41VjQuNUMyMy41IDMuMTE5MjkgMjIuMzgwNyAyIDIxIDJINFpNMy41IDQuNUMzLjUgNC4yMjM4NiAzLjcyMzg2IDQgNCA0SDIxQzIxLjI3NjEgNCAyMS41IDQuMjIzODYgMjEuNSA0LjVWMTkuNUMyMS41IDE5Ljc3NjEgMjEuMjc2MSAyMCAyMSAyMEg0QzMuNzIzODYgMjAgMy41IDE5Ljc3NjEgMy41IDE5LjVWNC41WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4zMiIvPgogIDxwYXRoIGQ9Ik02LjcwMDk0IDE1LjA5NzdDNi4yMjQzNyAxNS4wOTc3IDUuOTQzMTIgMTQuNzkzIDUuOTQzMTIgMTQuNDI1OEM1Ljk0MzEyIDE0LjIyNjYgNS45OSAxNC4wNzQyIDYuMDgzNzUgMTMuOTA2Mkw3Ljg4ODQ0IDEwLjY0NDVWMTAuNjEzM0g1Ljc3MTI1QzUuMzk2MjUgMTAuNjEzMyA1LjEyNjcyIDEwLjM1OTQgNS4xMjY3MiA5Ljk4NDM4QzUuMTI2NzIgOS42MDkzOCA1LjM5NjI1IDkuMzYzMjggNS43NzEyNSA5LjM2MzI4SDguNTc1OTRDOS4xMTEwOSA5LjM2MzI4IDkuNTM2ODcgOS42OTUzMSA5LjUzNjg3IDEwLjIzMDVDOS41MzY4NyAxMC41MTk1IDkuNDQ3MDMgMTAuNzg1MiA5LjI0MzkxIDExLjE3MTlMNy40MzkyMiAxNC42MDk0QzcuMjUxNzIgMTQuOTY4OCA3LjA1NjQxIDE1LjA5NzcgNi43MDA5NCAxNS4wOTc3Wk0xMC42NDA2IDE1QzEwLjEwMTYgMTUgOS44NjcxOSAxNC42OTkyIDkuODY3MTkgMTQuMjg1MkM5Ljg2NzE5IDEzLjk4MDUgMTAuMDA3OCAxMy43NDYxIDEwLjMyMDMgMTMuNDg0NEwxMS44NzExIDEyLjE1NjJDMTIuNTAzOSAxMS42MTMzIDEyLjY4MzYgMTEuMzY3MiAxMi42ODM2IDExLjAzMTJDMTIuNjgzNiAxMC42NzU4IDEyLjQxMDIgMTAuNDI5NyAxMi4wMDc4IDEwLjQyOTdDMTEuNzEwOSAxMC40Mjk3IDExLjUwNzggMTAuNTY2NCAxMS4yOTY5IDEwLjg3MTFDMTEuMDc4MSAxMS4xOTE0IDEwLjg3ODkgMTEuMzA4NiAxMC41NjI1IDExLjMwODZDMTAuMTQwNiAxMS4zMDg2IDkuODgyODEgMTEuMDYyNSA5Ljg4MjgxIDEwLjY2NDFDOS44ODI4MSAxMC41MzUyIDkuOTA2MjUgMTAuNDE0MSA5Ljk1NzAzIDEwLjI5NjlDMTAuMjUzOSA5LjYyNSAxMS4wNDY5IDkuMjA3MDMgMTIuMDMxMiA5LjIwNzAzQzEzLjQwMjMgOS4yMDcwMyAxNC4yNzczIDkuODk4NDQgMTQuMjc3MyAxMC45MjE5QzE0LjI3NzMgMTEuNjc5NyAxMy44ODY3IDEyLjA3NDIgMTMuMDExNyAxMi44MzJMMTEuOTg0NCAxMy43MTg4VjEzLjc1SDEzLjc3MzRDMTQuMTg3NSAxMy43NSAxNC40MjE5IDEzLjk5NjEgMTQuNDIxOSAxNC4zNzVDMTQuNDIxOSAxNC43NDYxIDE0LjE4NzUgMTUgMTMuNzczNCAxNUgxMC42NDA2Wk0xNy4xOTM2IDE1LjE1NjJDMTUuNjQ2NyAxNS4xNTYyIDE0LjY3MDIgMTQuMDMxMiAxNC42NzAyIDEyLjE2OEMxNC42NzAyIDEwLjI5MyAxNS42NTg0IDkuMjAzMTIgMTcuMTkzNiA5LjIwMzEyQzE4LjcyODggOS4yMDMxMiAxOS43MTMxIDEwLjI4OTEgMTkuNzEzMSAxMi4xNjQxQzE5LjcxMzEgMTQuMDIzNCAxOC43NDA1IDE1LjE1NjIgMTcuMTkzNiAxNS4xNTYyWk0xNy4xOTM2IDEzLjg4MjhDMTcuNzAxNCAxMy44ODI4IDE4LjAyNTYgMTMuMzQ3NyAxOC4wMjU2IDEyLjE2OEMxOC4wMjU2IDEwLjk4NDQgMTcuNzAxNCAxMC40NzY2IDE3LjE5MzYgMTAuNDc2NkMxNi42ODU4IDEwLjQ3NjYgMTYuMzU3NyAxMC45ODQ0IDE2LjM1NzcgMTIuMTY4QzE2LjM1NzcgMTMuMzQ3NyAxNi42ODU4IDEzLjg4MjggMTcuMTkzNiAxMy44ODI4WiIgZmlsbD0iYmxhY2siIGZpbGwtb3BhY2l0eT0iMC4zMiIvPgo8L3N2Zz4K"
+        alt="Video resolutions"
+        style={{ width, height }}
+        className={className}
+    />
+);
+
+export const SnipImgIcon = ({ width = '2.5rem', height = '2.4rem', className }) => (
+    <img
+        className={className}
+        style={{ width, height }}
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguNSA3LjVMMTcgNy41TDE3IDE2SDguNVY3LjVaTTYuNSA3LjVMNi40OTk5OSAxNi4yMjMxQzYuNDk5OTUgMTYuMzQyMyA2LjQ5OTg5IDE2LjQ4NDUgNi41MTAxMyAxNi42MDk4QzYuNTIyIDE2Ljc1NSA2LjU1MjQ0IDE2Ljk2MyA2LjY2MzQ5IDE3LjE4MUM2LjgwNzMgMTcuNDYzMiA3LjAzNjc3IDE3LjY5MjcgNy4zMTkwMSAxNy44MzY1QzcuNTM2OTYgMTcuOTQ3NiA3Ljc0NDk1IDE3Ljk3OCA3Ljg5MDE3IDE3Ljk4OTlDOC4wMTU0NSAxOC4wMDAxIDguMTU3NjUgMTguMDAwMSA4LjI3Njc1IDE4TDE3IDE4VjIxLjJDMTcgMjEuNDggMTcgMjEuNjIgMTcuMDU0NSAyMS43MjdDMTcuMTAyNCAyMS44MjExIDE3LjE3ODkgMjEuODk3NiAxNy4yNzMgMjEuOTQ1NUMxNy4zOCAyMiAxNy41MiAyMiAxNy44IDIySDE4LjJDMTguNDggMjIgMTguNjIgMjIgMTguNzI3IDIxLjk0NTVDMTguODIxMSAyMS44OTc2IDE4Ljg5NzYgMjEuODIxMSAxOC45NDU1IDIxLjcyN0MxOSAyMS42MiAxOSAyMS40OCAxOSAyMS4yVjE4SDIxLjdDMjEuOTggMTggMjIuMTIgMTggMjIuMjI3IDE3Ljk0NTVDMjIuMzIxMSAxNy44OTc2IDIyLjM5NzYgMTcuODIxMSAyMi40NDU1IDE3LjcyN0MyMi41IDE3LjYyIDIyLjUgMTcuNDggMjIuNSAxNy4yVjE2LjhDMjIuNSAxNi41MiAyMi41IDE2LjM4IDIyLjQ0NTUgMTYuMjczQzIyLjM5NzYgMTYuMTc4OSAyMi4zMjExIDE2LjEwMjQgMjIuMjI3IDE2LjA1NDVDMjIuMTIgMTYgMjEuOTggMTYgMjEuNyAxNkgxOUwxOSA3LjI3Njg2QzE5LjAwMDEgNy4xNTc3NSAxOS4wMDAxIDcuMDE1NDggMTguOTg5OSA2Ljg5MDE3QzE4Ljk3OCA2Ljc0NDk1IDE4Ljk0NzYgNi41MzY5NiAxOC44MzY1IDYuMzE5MDFDMTguNjkyNyA2LjAzNjc3IDE4LjQ2MzIgNS44MDczIDE4LjE4MSA1LjY2MzQ5QzE3Ljk2MyA1LjU1MjQ0IDE3Ljc1NSA1LjUyMiAxNy42MDk4IDUuNTEwMTNDMTcuNDg0NiA1LjQ5OTkgMTcuMzQyMyA1LjQ5OTk1IDE3LjIyMzMgNS40OTk5OUw4LjUgNS41VjIuOEM4LjUgMi41MTk5NyA4LjUgMi4zNzk5NiA4LjQ0NTUgMi4yNzNDOC4zOTc1NyAyLjE3ODkyIDguMzIxMDggMi4xMDI0MyA4LjIyNjk5IDIuMDU0NUM4LjEyMDA0IDIgNy45ODAwMyAyIDcuNyAySDcuM0M3LjAxOTk3IDIgNi44Nzk5NiAyIDYuNzczIDIuMDU0NUM2LjY3ODkyIDIuMTAyNDMgNi42MDI0MyAyLjE3ODkyIDYuNTU0NSAyLjI3M0M2LjUgMi4zNzk5NiA2LjUgMi41MTk5NyA2LjUgMi44VjUuNUwzLjMgNS41QzMuMDE5OTcgNS41IDIuODc5OTYgNS41IDIuNzczIDUuNTU0NUMyLjY3ODkyIDUuNjAyNDMgMi42MDI0MyA1LjY3ODkyIDIuNTU0NSA1Ljc3M0MyLjUgNS44Nzk5NiAyLjUgNi4wMTk5NyAyLjUgNi4zVjYuN0MyLjUgNi45ODAwMyAyLjUgNy4xMjAwNCAyLjU1NDUgNy4yMjY5OUMyLjYwMjQzIDcuMzIxMDcgMi42Nzg5MiA3LjM5NzU2IDIuNzczIDcuNDQ1NUMyLjg3OTk2IDcuNSAzLjAxOTk3IDcuNSAzLjMgNy41TDYuNSA3LjVaIiBmaWxsPSJibGFjayIgZmlsbC1vcGFjaXR5PSIwLjMyIi8+Cjwvc3ZnPgo="
+        alt="Aspect ratios"
+    />
+);

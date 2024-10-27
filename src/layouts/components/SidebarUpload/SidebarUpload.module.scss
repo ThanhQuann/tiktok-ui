@@ -1,0 +1,96 @@
+.wrapper {
+    position: fixed;
+    width: 240px;
+    height: 100vh;
+    background: #fff;
+}
+.wrapper {
+    width: 240px;
+    height: 100vh;
+    &::after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 100%;
+        background-color: #e3e3e4;
+        top: 10px;
+        right: 0;
+    }
+}
+
+.avatar {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 4px;
+}
+.Upload {
+    position: relative;
+    margin-top: 78px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 215px;
+    height: 48px;
+    margin-left: 12px;
+    background-color: #fe2c55;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &.active {
+        background-color: rgba(235, 235, 235, 1);
+        color: rgba(22, 24, 35, 0.34);
+        pointer-events: none;
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        width: 100%;
+        border-top: 1px solid #e3e3e4;
+        bottom: -21px;
+        left: 0;
+    }
+}
+
+.Hidden-Screen-Bottom {
+    position: relative;
+    display: flex;
+    width: 215px;
+    flex-direction: column;
+    top: 180px;
+    left: 12px;
+}
+.ToHome {
+    position: relative;
+    display: flex;
+    font-size: 14px;
+    line-height: 15px;
+    color: black;
+    font-weight: 600;
+    width: 100%;
+
+    &::after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        width: 100%;
+        border-top: 1px solid #e3e3e4;
+        top: 30px;
+        left: 0;
+    }
+}
+.footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    top: 30px;
+    & .title {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(22, 24, 35, 0.5);
+    }
+}

@@ -1,12 +1,25 @@
-.wrapper{
-   position: fixed;
-   margin-top: 60px;
-   width: 224px;
-   padding: 20px 0 26px 8px;
-   height: 100vh;
+.wrapper {
+    position: fixed;
+    margin-top: 60px;
+    width: 224px;
+    padding: 20px 0 26px 8px;
+    height: 100vh;
 }
-.avatar{
-   margin-left: 0;
-   margin-top: 0;
-   padding: 4px;
+.avatar {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 4px;
+}
+.Upload {
+    margin-top: 78px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 215px;
+    height: 48px;
+    margin-left: 12px;
+    background-color: #fe2c55;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
 }

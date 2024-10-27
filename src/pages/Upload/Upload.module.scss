@@ -1,0 +1,112 @@
+.wrapper {
+    position: relative;
+    width: 1080px;
+    height: 692px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding-top: 30px;
+    margin-left: 32px;
+}
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1016px;
+    height: 500px;
+    background: #f8f8f8;
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    left: 50%;
+    cursor: pointer;
+    transform: translate(-50%, 0%);
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.3);
+    }
+    &-upload {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon-size {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.upload {
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+.text {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 5px;
+}
+.upload-video {
+    width: 200px;
+    height: 56px;
+}
+.btn-upload {
+    margin-top: 16px;
+    background: #fe2c55;
+    line-height: 40px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.title-upload {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    &:hover {
+        background-color: #ea284e;
+        border-radius: 6px;
+    }
+}
+.icon-size {
+    display: flex;
+    width: 1016px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.suggest-item {
+    flex: 1 1 0%;
+    display: flex;
+    padding: 24px 0px 0px;
+}
+
+.text-content {
+    width: 205px;
+    padding-top: 2px;
+}
+
+.title {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.24px;
+}
+.image-sgt {
+    margin-left: 32px;
+    padding: 0px 8px 0px 16px;
+}
+.image-sgt:first-child {
+    padding-left: 0px;
+}
+.desc {
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.48);
+    font-size: 14px;
+    font-weight: 400;
+}

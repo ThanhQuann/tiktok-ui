@@ -20,8 +20,8 @@ import SuggestedAccounts from '~/components/SuggestedAccounts';
 const cx = classNames.bind(styles);
 function Sidebar() {
     return (
-        <aside className={cx('wrapper')}>
-            {
+        <aside>
+            <div className={cx('wrapper')}>
                 <Menu>
                     <MenuItem
                         title="For You"
@@ -66,10 +66,9 @@ function Sidebar() {
                         icon={<Profile />}
                         activeIcon={<Profile />}
                     />
+                    <SuggestedAccounts label="Following accounts" />
                 </Menu>
-            }
-            <SuggestedAccounts label="Following accounts" />
-            
+            </div>
         </aside>
     );
 }

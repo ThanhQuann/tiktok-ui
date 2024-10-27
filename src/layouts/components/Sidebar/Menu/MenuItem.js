@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 
-const cx = classNames.bind(styles);
+export const cx = classNames.bind(styles);
 
 function MenuItem({ title, to, icon,activeIcon }) {
     return (

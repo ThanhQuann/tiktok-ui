@@ -124,22 +124,28 @@ function Home() {
     }, []); // Empty dependency array để chạy effect một lần khi mount
 
     // Cập nhật trạng thái hover khi người dùng di chuột vào/ra
-    const handleMouseEnterVideo = useCallback((index) => {
-        setHoveredIndex(index);
-    }, []);
+    const handleMouseEnterVideo = (event, index) => {
+        if (event.target.tagName === 'VIDEO') {
+            // Chỉ thực hiện nếu mục tiêu là video
+            setHoveredIndex(index);
+        }
+    };
 
-    const handleMouseLeaveVideo = useCallback(() => {
-        setHoveredIndex(null);
-    }, []);
+    const handleMouseLeaveVideo = (event) => {
+        if (event.target.tagName === 'VIDEO') {
+            // Chỉ thực hiện nếu rời khỏi video
+            setHoveredIndex(null);
+        }
+    };
     // Render các video và thông tin video
     const renderedVideos = useMemo(
         () =>
             videos.map((video, index) => (
                 <div
                     key={index}
-                    onMouseEnter={() => handleMouseEnterVideo(index)}
-                    onMouseLeave={handleMouseLeaveVideo}
                     className={cx('video-container')}
+                    onMouseEnter={(e) => handleMouseEnterVideo(e, index)}
+                    onMouseLeave={(e) => handleMouseLeaveVideo(e)}
                 >
                     <div style={{ display: 'flex' }}>
                         <video
@@ -233,8 +239,6 @@ function Home() {
             handleVolumeChange,
             handleSeekChange,
             hoveredIndex,
-            handleMouseEnterVideo,
-            handleMouseLeaveVideo,
             isHoveredVolumeIcon,
         ],
     );

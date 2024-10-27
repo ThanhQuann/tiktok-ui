@@ -52,23 +52,23 @@
     cursor: pointer;
     position: relative;
 }
-.Upload{
+.Upload {
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
 }
-.icon-upload{
+.icon-upload {
     margin-right: 10px;
 }
-.link-upload{
+.link-upload {
     display: flex;
     align-items: center;
+    padding: 0 16px;
 }
-.action-upload{
+.action-upload {
     margin-top: -5px;
     min-width: 110px;
-    padding: 0px 16px;
     height: 36px;
     border: 1px solid rgba(22, 24, 35, 0.12);
     border-radius: 2px;
@@ -79,12 +79,13 @@
     justify-content: center;
     background: rgb(255, 255, 255);
     margin-right: 15px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        transition: ease-in-out 0.01ms;
+    }
 }
 
-
-
-
-.notification{
+.notification {
     top: -2px;
     color: rgb(255, 255, 255);
     font-family: TikTokFont, Arial, Tahoma, PingFangSC, sans-serif;
@@ -103,7 +104,6 @@
 }
 .menu-items {
     width: 224px;
-
 }
 .user-avatar {
     margin-top: -5px;
@@ -115,4 +115,3 @@
     margin-right: 8px;
     cursor: pointer;
 }
-
