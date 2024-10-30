@@ -12,9 +12,9 @@ const videos = [
     {
         id: 1,
         src: require('~/videos/video1.mp4'),
-        author: 'legiang',
-        desc: 'Một ngày đẹp trời bên cạnh những người bạn thân thiết.',
-        music: 'Nhạc nền - hongloan19930',
+        author: 'VTV24',
+        desc: 'Thương quá Quảng Bình ơi...',
+        music: 'Nhạc nền - VTV Âm thanh gốc',
         avatars: {
             src: 'https://randomuser.me/api/portraits/men/1.jpg',
             alt: 'Avatar 1',
@@ -158,6 +158,21 @@ const videos = [
         comments: formatNumber(1028),
         likes: formatNumber(1660),
         shares: formatNumber(1045),
+    },
+    {
+        id: 11,
+        src: require('~/videos/video11.mp4'),
+        author: 'nhana',
+        desc: 'Chia sẻ các mẹo trang trí nhà cửa độc đáo.',
+        music: 'Nhạc nền - trangtri',
+        avatars: {
+            src: 'https://randomuser.me/api/portraits/women/4.jpg',
+            alt: 'Avatar 11',
+        },
+        hearts: formatNumber(80),
+        comments: formatNumber(10),
+        likes: formatNumber(310),
+        shares: formatNumber(20),
     },
 ];
 

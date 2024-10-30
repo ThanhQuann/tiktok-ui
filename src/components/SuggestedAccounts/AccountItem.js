@@ -30,7 +30,7 @@ function AccountItem() {
 
                     <div className={cx('item-info')}>
                         <h4 className={cx('nickname')}>
-                            <strong>Pho Hong Tuyet</strong>
+                            <strong className={cx('username')}>Pho Hong Tuyet</strong>
                             <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
                         </h4>
                         <div className={cx('name')}>Pho Hong Tuyet</div>
@@ -48,7 +48,7 @@ function AccountItem() {
 
                     <div className={cx('item-info')}>
                         <h4 className={cx('nickname')}>
-                            <strong>Mi Nguyet Tam</strong>
+                            <strong className={cx('username')}>Mi Nguyet Tam</strong>
                             <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
                         </h4>
                         <div className={cx('name')}>Mi Nguyet Tam</div>
@@ -66,7 +66,7 @@ function AccountItem() {
 
                     <div className={cx('item-info')}>
                         <h4 className={cx('nickname')}>
-                            <strong>Tieu Ly Phi Dao</strong>
+                            <strong className={cx('username')}>Tieu Ly Phi Dao</strong>
                             <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
                         </h4>
                         <div className={cx('name')}>Tieu Ly Phi Dao</div>
