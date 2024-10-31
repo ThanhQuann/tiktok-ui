@@ -837,8 +837,8 @@ export const LocationIcon = ({ width = '2rem', height = '2rem', className }) => 
     >
         <path d="M0 5a5 5 0 0 1 5-5h38a5 5 0 0 1 5 5v38a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5Z" fill="#00C39B"></path>
         <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M24 40.5c.88 0 14-11.43 14-19.1 0-7.68-6.27-13.9-14-13.9s-14 6.22-14 13.9c0 7.67 13.13 19.1 14 19.1Zm0-14.76c2.9 0 5.25-2.34 5.25-5.21A5.23 5.23 0 0 0 24 15.32a5.23 5.23 0 0 0-5.25 5.2A5.23 5.23 0 0 0 24 25.75Z"
             fill="#fff"
         ></path>
@@ -853,11 +853,11 @@ export const DropdownsmallIcon = ({ width = '2rem', height = '2.1rem', className
         viewBox="0 0 20 21"
         fill="currentColor"
     >
-        <g clip-path="url(#clip0_26676_18859)">
+        <g clipPath="url(#clip0_26676_18859)">
             <path
                 d="M14.4611 8.75298C14.6238 8.9157 14.6238 9.17952 14.4611 9.34224L10.5891 13.2143C10.2637 13.5397 9.73602 13.5397 9.41058 13.2143L5.53854 9.34224C5.37582 9.17952 5.37582 8.9157 5.53854 8.75298L6.1278 8.16373C6.29052 8.00101 6.55434 8.00101 6.71705 8.16373L9.99984 11.4465L13.2826 8.16373C13.4453 8.00101 13.7092 8.00101 13.8719 8.16373L14.4611 8.75298Z"
                 fill="var(--ui-text-1)"
-                fill-opacity="0.48"
+                fillOpacity="0.48"
             ></path>
         </g>
         <defs>
@@ -872,7 +872,7 @@ export const CheckIcon = ({ width = '2rem', height = '2rem', className }) => (
     <svg
         fill="currentColor"
         color="inherit"
-        font-size="20px"
+        fontSize="20px"
         viewBox="0 0 48 48"
         xmlns="http://www.w3.org/2000/svg"
         width={width}
@@ -881,4 +881,23 @@ export const CheckIcon = ({ width = '2rem', height = '2rem', className }) => (
     >
         <path d="M38.68 10.26c.46.3.6.92.3 1.38L23 36.3a2.4 2.4 0 0 1-3.82.28L9.85 25.83a1 1 0 0 1 .1-1.41l2.1-1.84a1 1 0 0 1 1.42.1l7.25 8.34L34.94 9.04a1 1 0 0 1 1.38-.3l2.36 1.52Z"></path>
     </svg>
+);
+export const LoadIcon = ({ width = '1.7rem', height = '1.7rem', className }) => (
+    <svg
+        fill="currentColor"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        width={width}
+        height={height}
+        className={className}
+    >
+        <path d="M24 8c4.06 0 7.76 1.5 10.58 4H29a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v4.8A20 20 0 0 0 4.14 26.34c.06.55.58.92 1.12.83l1.98-.34c.54-.09.9-.6.85-1.15A16 16 0 0 1 24 8Zm16 16c0-.57-.03-1.13-.09-1.68-.05-.55.31-1.06.85-1.15l1.98-.34a.96.96 0 0 1 1.12.83A20 20 0 0 1 11 39.2V44a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V33a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-5.58A16 16 0 0 0 40 24Z"></path>
+    </svg>
+);
+export const InfoIcon = ({ width = '2rem', height = '2rem', className }) => (
+    <img
+        style={{ width, height, className }}
+        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNSAyNCIgZmlsbD0ibm9uZSIKICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTIuNSAyMS4xNjczQzE3LjU2MjYgMjEuMTY3MyAyMS42NjY3IDE3LjA2MzMgMjEuNjY2NyAxMi4wMDA3QzIxLjY2NjcgNi45MzgwNCAxNy41NjI2IDIuODMzOTggMTIuNSAyLjgzMzk4QzcuNDM3NCAyLjgzMzk4IDMuMzMzMzQgNi45MzgwNCAzLjMzMzM0IDEyLjAwMDdDMy4zMzMzNCAxNy4wNjMzIDcuNDM3NCAyMS4xNjczIDEyLjUgMjEuMTY3M1pNMTYuODMxNiA4LjM4OTIxTDE1Ljk0MjEgNy44MzAxOEMxNS42OTQxIDcuNjc5NDkgMTUuMzY4NSA3Ljc1MjQgMTUuMjE3OCA4LjAwMDMyTDExLjM4NzIgMTQuMTMwMkw5LjI2MjkgMTEuNzA0NUM5LjA2ODQ1IDExLjQ4NTcgOC43Mzc5IDExLjQ2MTQgOC41MjQwMSAxMS42NTFMNy43MjY3OSAxMi4zNDYyQzcuNTA4MDQgMTIuNTM1NyA3LjQ4MzczIDEyLjg3NiA3LjY3ODE3IDEzLjA4OTlMMTAuNzM1OCAxNi41ODVDMTAuOTU0NiAxNi44Mzc4IDExLjI3NTQgMTYuOTY5MSAxMS42MDYgMTYuOTM5OUMxMS45NDE0IDE2LjkxNTYgMTIuMjM3OSAxNi43MzA5IDEyLjQxNzggMTYuNDQ0MUwxNy4wMDE4IDkuMTE4MzdDMTcuMTUyNSA4Ljg3MDQ2IDE3LjA3OTYgOC41NDQ3NiAxNi44MzE2IDguMzg5MjFaIiBmaWxsPSIjMDBDMzlCIi8+Cjwvc3ZnPgo="
+        alt="Uploaded"
+    />
 );
