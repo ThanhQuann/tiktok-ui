@@ -549,11 +549,13 @@ input:checked + .slider:before {
         border-radius: 8px;
     }
 }
-.preview-video,.video{
+.preview-video{
         width: 292px;
         height: 618px;
+        padding: 0;
 }
 .video{
-    // background-color: #000;
-
+    width: 100%;
+    height: 100%;
+    background: red;
 }

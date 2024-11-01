@@ -215,7 +215,7 @@ function Content({ activeVideo }) {
                     </div>
                 </div>
                 <div className={cx('preview-video')}>
-                    {videoURL && <video className={cx('video')} src={videoURL} controls />}
+                    <video className={cx('video')} src={videoURL} controls />
                 </div>
             </div>
         </div>
