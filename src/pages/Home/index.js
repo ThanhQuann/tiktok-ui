@@ -5,6 +5,8 @@ import videos from '~/components/Videos/videos';
 import { Link } from 'react-router-dom';
 import { FaVolumeUpIcon, FaVolumeMuteIcon, EllipsisIcon, FloatingIcon } from '~/components/Icons';
 import ActionItem from './actionItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +20,8 @@ function Home() {
     // Trạng thái hover
     const [currentTimes, setCurrentTimes] = useState(videos.map(() => 0)); // Thời gian hiện tại của mỗi video
     const [durations, setDurations] = useState(videos.map(() => 0)); // Thời lượng của mỗi video
-
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [showIcon, setShowIcon] = useState(false);
     // Hàm xử lý khi click vào video
     const handleVideoClick = useCallback(
         (index) => {
@@ -35,10 +38,13 @@ function Home() {
                     } else {
                         video.pause();
                     }
+                    setIsPlaying(!isPlaying);
+                    setShowIcon(true);
+                    setTimeout(() => setShowIcon(false), 500);
                 }
             });
         },
-        [], // Không cần phụ thuộc vào các giá trị khác
+        [isPlaying], // Không cần phụ thuộc vào các giá trị khác
     );
 
     // Hàm chuyển đổi tắt/bật tiếng của video
@@ -166,7 +172,11 @@ function Home() {
                             shares={video.shares}
                         />
                     </div>
-
+                    {showIcon && (
+                        <div className={cx('icon-overlay',{show: showIcon})}>
+                            <FontAwesomeIcon className={cx('icon-play')} icon={isPlaying ? faPause : faPlay} />
+                        </div>
+                    )}
                     <div className={cx('progress-controls')}>
                         <input
                             type="range"
@@ -240,6 +250,8 @@ function Home() {
             handleSeekChange,
             hoveredIndex,
             isHoveredVolumeIcon,
+            isPlaying,
+            showIcon,
         ],
     );
     return (

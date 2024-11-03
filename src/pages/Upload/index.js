@@ -9,6 +9,8 @@ function Upload() {
     const fileInputRef = useRef(null);
     const [showContent, setShowContent] = useState(false);
     const [videoInfo, setVideoInfo] = useState('null'); // Trạng thái lưu thông tin video
+    const [videoURL, setVideoURL] = useState();
+    const [coverImage, setCoverImage] = useState('');
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -20,12 +22,25 @@ function Upload() {
             const seconds = videoDurationInSeconds % 60;
             const formattedDuration = `${minutes}m ${seconds}s`;
             const videoSizeInMB = (file.size / (1024 * 1024)).toFixed(1);
-
             setVideoInfo({
                 name: videoName,
                 duration: formattedDuration,
                 size: `${videoSizeInMB} MB`,
             });
+            const url = URL.createObjectURL(file);
+            setVideoURL(url);
+            const videoElement = document.createElement('video');
+            videoElement.src = url;
+            videoElement.currentTime = 0.01; // Lấy frame ở giây đầu tiên
+            videoElement.onloadeddata = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = videoElement.videoWidth;
+                canvas.height = videoElement.videoHeight;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                const imageUrl = canvas.toDataURL('image/png');
+                setCoverImage(imageUrl);
+            };
         }
     };
     const handleButtonClick = () => {
@@ -97,7 +112,7 @@ function Upload() {
                     </div>
                 </div>
             ) : (
-                <Content activeVideo={videoInfo} />
+                <Content videoUrl={videoURL} coverImg={coverImage} activeVideo={videoInfo} />
             )}
         </div>
     );

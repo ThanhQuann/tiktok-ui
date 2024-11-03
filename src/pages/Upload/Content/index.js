@@ -8,23 +8,33 @@ import {
     InfoIcon,
     LoadIcon,
     LocationIcon,
+    NoneImgIcon,
     TooltipIcon,
     UploadVideoIcon,
 } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
-function Content({ activeVideo }) {
+function Content({ activeVideo, videoUrl, coverImg }) {
     const [text, setText] = useState('');
     const [hidden, setHidden] = useState('true');
     const [selectedOption, setSelectedOption] = useState('Everyone');
     const [click, setClick] = useState(false);
     const [videoInfo, setVideoInfo] = useState(activeVideo);
-    const [videoURL, setVideoURL] = useState();
+    const [videoURL, setVideoURL] = useState(videoUrl);
+    const [coverImage, setCoverImage] = useState(coverImg);
+    const [isModal, setIsModal] = useState(false);
     const fileInputRef = useRef(null);
-
+    const videoRef = useRef();
     const maxText = 4000;
-
+    const handlePlayVideo = () => {
+        if (videoRef.current.paused) {
+            videoRef.current.play();
+        } else {
+            videoRef.current.pause();
+        }
+    };
+    console.log({ coverImage });
     const handleTextChange = (e) => {
         const inputText = e.target.value;
         setText(inputText.length > maxText ? inputText.slice(0, maxText) : inputText);
@@ -40,15 +50,26 @@ function Content({ activeVideo }) {
         setSelectedOption(option);
         setClick(false);
     };
+    useEffect(() => {
+        const handleScroll = (event) => {
+            if (isModal) {
+                event.preventDefault();
+            }
+        };
+        if (isModal) {
+            window.addEventListener('wheel', handleScroll, { passive: false });
+        }
+    }, [isModal]);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
+            setVideoInfo(null);
+            setVideoURL(null);
             const videoName = file.name;
             const videoDurationInSeconds = Math.floor(file.size / (1024 * 1024)); // Giả định 1MB ~ 1 giây
             const minutes = Math.floor(videoDurationInSeconds / 60);
             const seconds = videoDurationInSeconds % 60;
-
             const formattedDuration = `${minutes}m ${seconds}s`;
             const videoSizeInMB = (file.size / (1024 * 1024)).toFixed(1);
 
@@ -59,21 +80,50 @@ function Content({ activeVideo }) {
             });
             setHidden(true);
             const url = URL.createObjectURL(file);
-            console.log("Video URL:", url);
             setVideoURL(url);
+            const videoElement = document.createElement('video');
+            videoElement.src = url;
+            videoElement.currentTime = 0.001; // Lấy frame ở giây đầu tiên
+
+            videoElement.onloadeddata = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = videoElement.videoWidth;
+                canvas.height = videoElement.videoHeight;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                const imageUrl = canvas.toDataURL('image/png'); // Chuyển thành URL ảnh
+                setCoverImage(imageUrl); // Lưu URL ảnh vào coverImage
+                URL.revokeObjectURL(url);
+            };
+            videoElement.load();
         }
     };
-
+    const handlePostData = () => {
+        // Make API call to upload video and post data
+        console.log('Video URL:', videoURL);
+        console.log('Text:', text);
+        console.log('Selected option:', selectedOption);
+        setIsModal(false);
+        document.body.classList.remove('no-scroll');
+    };
+    const handleActiveModel = () => {
+        setIsModal(true);
+        document.body.classList.add('no-scroll');
+    };
     useEffect(() => {
-        if (activeVideo) {
-            setVideoInfo({
-                name: activeVideo.name,
-                duration: activeVideo.duration,
-                size: activeVideo.size,
-            });
+        if (!hidden && fileInputRef.current) {
+            fileInputRef.current.click();
+            setCoverImage('');
         }
-    }, [activeVideo]);
-
+    }, [hidden]);
+    useEffect(() => {
+        if (coverImg) {
+            setCoverImage(coverImg);
+        }
+        if (videoUrl) {
+            setVideoURL(videoUrl);
+        }
+    }, [coverImg, videoUrl]);
     return (
         <div className={cx('wrapper-header')}>
             <div className={cx('wrapper-header-upload')}>
@@ -81,12 +131,10 @@ function Content({ activeVideo }) {
                     <div className={cx('video-info')}>
                         <div className={cx('video-header')}>
                             <span className={cx('video-name')}> {videoInfo.name}</span>
-                            <div className={cx('video-replace')}>
+                            <div onClick={handClickHidden} className={cx('video-replace')}>
                                 <div className={cx('video-load')}>
                                     <LoadIcon />
-                                    <span className={cx('video-title')} onClick={handClickHidden}>
-                                        Replace
-                                    </span>
+                                    <span className={cx('video-title')}>Replace</span>
                                 </div>
                             </div>
                         </div>
@@ -143,6 +191,15 @@ function Content({ activeVideo }) {
                             </div>
                         </div>
                     </div>
+                    <div className={cx('clip')}>
+                        <span className={cx('Cover')}>Cover</span>
+                        <TooltipIcon />
+                    </div>
+
+                    <div className={cx('custom-img')}>
+                        <img className={cx('img-cover')} src={coverImage} alt="" />
+                        <NoneImgIcon className={cx('None-img')} />
+                    </div>
                     <div className={cx('location')}>
                         <div className={cx('location-title')}>
                             <span className={cx('location-text')}>Location</span>
@@ -159,6 +216,7 @@ function Content({ activeVideo }) {
                             <div className={cx('item-location')}>Trạm dừng chân phúc lộc thọ cái bè tiền giang</div>
                         </div>
                     </div>
+
                     <div className={cx('watch')}>
                         <span className={cx('watch-video')}>Who can watch this video</span>
                         <div className={cx('select-button')}>
@@ -196,6 +254,28 @@ function Content({ activeVideo }) {
                             </div>
                         </div>
                     </div>
+                    {isModal && (
+                        <div className={cx('modal-overlay')}>
+                            <div className={cx('modal-confirm')}>
+                                <div className={cx('modal-confirm__text')}>
+                                    <div className={cx('modal-confirm__title')}>Your video has been uploaded</div>
+                                    <div className={cx('modal-confirm__desc')}>
+                                        You can manage your posts or upload another video.
+                                    </div>
+                                    <div className={cx('flex-action')}>
+                                        <div className={cx('action-manage')}>
+                                            <button className={cx('btn-manage')}>Manage posts</button>
+                                        </div>
+                                        <div className={cx('action-upload')}>
+                                            <button onClick={handlePostData} className={cx('btn-upload')}>
+                                                Upload
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                     <div className={cx('switch-copy')}>
                         <span className={cx('copy-check')}>Run a copyright check</span>
                         <TooltipIcon className={cx('icon-switch')} />
@@ -209,13 +289,19 @@ function Content({ activeVideo }) {
                         <DropdownIcon />
                     </div>
                     <span className={cx('Seemore-desc')}>Content disclosure and other advanced settings</span>
+                    <div className={cx('line-height')}></div>
+
                     <div className={cx('action')}>
-                        <button className={cx('upload-btn')}>Post</button>
+                        <button className={cx('upload-btn')} onClick={handleActiveModel}>
+                            Post
+                        </button>
                         <button className={cx('discard-btn')}>Discard</button>
                     </div>
                 </div>
                 <div className={cx('preview-video')}>
-                    <video className={cx('video')} src={videoURL} controls />
+                    {hidden && (
+                        <video onClick={handlePlayVideo} className={cx('video')} src={videoURL} ref={videoRef} />
+                    )}
                 </div>
             </div>
         </div>
