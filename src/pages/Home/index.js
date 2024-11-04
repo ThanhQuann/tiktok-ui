@@ -11,18 +11,29 @@ import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function Home() {
-    const [, setPlayingIndex] = useState(null); // Trạng thái video đang phát
-    const videoRefs = useRef([]); // Lưu tham chiếu đến các video
+    const [, setPlayingIndex] = useState(null);
+    const videoRefs = useRef([]);
     const [volumes, setVolumes] = useState(videos.map(() => 1));
     const [muted, setMuted] = useState(videos.map(() => false));
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [isHoveredVolumeIcon, setHoveredVolumeIcon] = useState(null);
-    // Trạng thái hover
-    const [currentTimes, setCurrentTimes] = useState(videos.map(() => 0)); // Thời gian hiện tại của mỗi video
-    const [durations, setDurations] = useState(videos.map(() => 0)); // Thời lượng của mỗi video
+    const [currentTimes, setCurrentTimes] = useState(videos.map(() => 0));
+    const [durations, setDurations] = useState(videos.map(() => 0));
     const [isPlaying, setIsPlaying] = useState(false);
     const [showIcon, setShowIcon] = useState(false);
-    // Hàm xử lý khi click vào video
+
+    // const [actionStates, setActionStates] = useState(() => {
+    //     const storedStates = JSON.parse(localStorage.getItem('actionStates'));
+    //     return (
+    //         storedStates ||
+    //         videos.map(() => ({
+    //             isHeartActive: false,
+    //             isLikeActive: false,
+    //             isSubmitted: false,
+    //         }))
+    //     );
+    // });
+
     const handleVideoClick = useCallback(
         (index) => {
             videoRefs.current.forEach((video, i) => {
@@ -44,54 +55,42 @@ function Home() {
                 }
             });
         },
-        [isPlaying], // Không cần phụ thuộc vào các giá trị khác
+        [isPlaying],
     );
 
-    // Hàm chuyển đổi tắt/bật tiếng của video
-    const toggleMute = useCallback(
-        (index) => {
-            setMuted((prevMuted) => {
-                const newMuted = [...prevMuted];
-                newMuted[index] = !newMuted[index];
-                if (videoRefs.current[index]) {
-                    videoRefs.current[index].muted = newMuted[index];
-                }
-                return newMuted;
-            });
-        },
-        [], // Không cần phụ thuộc vào các giá trị khác
-    );
-
-    // Hàm xử lý thay đổi âm lượng
-    const handleVolumeChange = useCallback(
-        (index, value) => {
-            setVolumes((prevVolumes) => {
-                const newVolumes = [...prevVolumes];
-                newVolumes[index] = value;
-                if (videoRefs.current[index]) {
-                    videoRefs.current[index].volume = value;
-                }
-                return newVolumes;
-            });
-        },
-        [], // Không cần phụ thuộc vào các giá trị khác
-    );
-    // Hàm xử lý thay đổi tiến trình video
-    const handleSeekChange = useCallback(
-        (index, value) => {
+    const toggleMute = useCallback((index) => {
+        setMuted((prevMuted) => {
+            const newMuted = [...prevMuted];
+            newMuted[index] = !newMuted[index];
             if (videoRefs.current[index]) {
-                videoRefs.current[index].currentTime = value;
-                setCurrentTimes((prevTimes) => {
-                    const newTimes = [...prevTimes];
-                    newTimes[index] = value;
-                    return newTimes;
-                });
+                videoRefs.current[index].muted = newMuted[index];
             }
-        },
-        [], // Không cần phụ thuộc vào các giá trị khác
-    );
+            return newMuted;
+        });
+    }, []);
 
-    // Cập nhật thời gian hiện tại và thời lượng của video khi phát
+    const handleVolumeChange = useCallback((index, value) => {
+        setVolumes((prevVolumes) => {
+            const newVolumes = [...prevVolumes];
+            newVolumes[index] = value;
+            if (videoRefs.current[index]) {
+                videoRefs.current[index].volume = value;
+            }
+            return newVolumes;
+        });
+    }, []);
+
+    const handleSeekChange = useCallback((index, value) => {
+        if (videoRefs.current[index]) {
+            videoRefs.current[index].currentTime = value;
+            setCurrentTimes((prevTimes) => {
+                const newTimes = [...prevTimes];
+                newTimes[index] = value;
+                return newTimes;
+            });
+        }
+    }, []);
+
     useEffect(() => {
         const videoElements = videoRefs.current;
 
@@ -118,7 +117,6 @@ function Home() {
             }
         });
 
-        // Cleanup sự kiện khi component unmount
         return () => {
             videoElements.forEach((video, index) => {
                 if (video) {
@@ -127,23 +125,45 @@ function Home() {
                 }
             });
         };
-    }, []); // Empty dependency array để chạy effect một lần khi mount
+    }, []);
 
-    // Cập nhật trạng thái hover khi người dùng di chuột vào/ra
     const handleMouseEnterVideo = (event, index) => {
         if (event.target.tagName === 'VIDEO') {
-            // Chỉ thực hiện nếu mục tiêu là video
             setHoveredIndex(index);
         }
     };
 
     const handleMouseLeaveVideo = (event) => {
         if (event.target.tagName === 'VIDEO') {
-            // Chỉ thực hiện nếu rời khỏi video
             setHoveredIndex(null);
         }
     };
-    // Render các video và thông tin video
+
+    // const handleHeartClick = (index) => {
+    //     setActionStates((prevStates) => {
+    //         const newStates = [...prevStates];
+    //         newStates[index].isHeartActive = !newStates[index].isHeartActive;
+    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
+    //         return newStates;
+    //     });
+    // };
+
+    // const handleLikeClick = (index) => {
+    //     setActionStates((prevStates) => {
+    //         const newStates = [...prevStates];
+    //         newStates[index].isLikeActive = !newStates[index].isLikeActive;
+    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
+    //         return newStates;
+    //     });
+    // };
+    // const handleSubmitClick = (index) => {
+    //     setActionStates((prevStates) => {
+    //         const newStates = [...prevStates];
+    //         newStates[index].isSubmitted = !newStates[index].isSubmitted;
+    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
+    //         return newStates;
+    //     });
+    // };
     const renderedVideos = useMemo(
         () =>
             videos.map((video, index) => (
@@ -163,17 +183,23 @@ function Home() {
                             <source src={video.src} type="video/mp4" />
                         </video>
                         <ActionItem
-                            // ref={forwardRef}
                             key={video.id}
                             avatars={video.avatars}
                             hearts={video.hearts}
                             comments={video.comments}
                             likes={video.likes}
+                            videoId={video.id}
                             shares={video.shares}
+                            // isHeartActive={actionStates[index].isHeartActive}
+                            // isLikeActive={actionStates[index].isLikeActive}
+                            // isSubmitted={actionStates[index].isSubmitted}
+                            // onHeartClick={() => handleHeartClick(index)}
+                            // onLikeClick={() => handleLikeClick(index)}
+                            // onSubmitClick={() => handleSubmitClick(index)}
                         />
                     </div>
                     {showIcon && (
-                        <div className={cx('icon-overlay',{show: showIcon})}>
+                        <div className={cx('icon-overlay', { show: showIcon })}>
                             <FontAwesomeIcon className={cx('icon-play')} icon={isPlaying ? faPause : faPlay} />
                         </div>
                     )}
@@ -181,10 +207,10 @@ function Home() {
                         <input
                             type="range"
                             min="0"
-                            max={durations[index]} // Tổng thời lượng video
+                            max={durations[index]}
                             step="0.1"
-                            value={currentTimes[index]} // Thời gian hiện tại
-                            onChange={(e) => handleSeekChange(index, e.target.value)} // Gọi khi người dùng kéo để tua video
+                            value={currentTimes[index]}
+                            onChange={(e) => handleSeekChange(index, e.target.value)}
                             className={cx('progress-bar')}
                         />
                     </div>
@@ -195,9 +221,7 @@ function Home() {
                                     <button
                                         onClick={() => toggleMute(index)}
                                         className={cx('volume-icon')}
-                                        onMouseEnter={() => {
-                                            setHoveredVolumeIcon(index);
-                                        }}
+                                        onMouseEnter={() => setHoveredVolumeIcon(index)}
                                         onMouseLeave={() => setHoveredVolumeIcon(null)}
                                     >
                                         {muted[index] ? <FaVolumeMuteIcon /> : <FaVolumeUpIcon />}
@@ -212,9 +236,7 @@ function Home() {
                         {!muted[index] && isHoveredVolumeIcon === index && (
                             <div
                                 className={cx('Control-Volume__container')}
-                                onMouseEnter={() => {
-                                    setHoveredVolumeIcon(index);
-                                }}
+                                onMouseEnter={() => setHoveredVolumeIcon(index)}
                                 onMouseLeave={() => setHoveredVolumeIcon(null)}
                             >
                                 <input
@@ -225,7 +247,7 @@ function Home() {
                                     value={volumes[index]}
                                     onChange={(e) => handleVolumeChange(index, e.target.value)}
                                     className={cx('volume-slider')}
-                                    style={{ transform: 'rotate(360deg)' }} // Xoay thanh âm lượng
+                                    style={{ transform: 'rotate(360deg)' }}
                                 />
                             </div>
                         )}
@@ -252,11 +274,13 @@ function Home() {
             isHoveredVolumeIcon,
             isPlaying,
             showIcon,
+            // actionStates,
         ],
     );
+
     return (
         <div className={cx('video-wrapper')}>
-            <div className={cx('video-container--home')}> {renderedVideos}</div>
+            <div className={cx('video-container--home')}> {renderedVideos} </div>
         </div>
     );
 }

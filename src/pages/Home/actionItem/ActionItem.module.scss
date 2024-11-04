@@ -69,11 +69,18 @@
     height: 24px;
     border-radius: 50%;
     border-color: #fe2c55;
+
+    border-width: 1px;
+    border-style: solid;
     background-color: #fe2c55;
     left: 50%;
     bottom: 0;
     transform: translate(-50%, 50%);
     cursor: pointer;
+    &.submitted {
+        border-color: rgba(22, 24, 35, 0.12);
+        background-color: #fff;
+    }
 }
 
 @keyframes heartAnimation {
