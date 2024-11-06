@@ -140,31 +140,31 @@ function Home() {
         }
     };
 
-    const handleHeartClick = (index) => {
-        setActionStates((prevStates) => {
-            const newStates = [...prevStates];
-            newStates[index].isHeartActive = !newStates[index].isHeartActive;
-            localStorage.setItem('actionStates', JSON.stringify(newStates));
-            return newStates;
-        });
-    };
+    // const handleHeartClick = (index) => {
+    //     setActionStates((prevStates) => {
+    //         const newStates = [...prevStates];
+    //         newStates[index].isHeartActive = !newStates[index].isHeartActive;
+    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
+    //         return newStates;
+    //     });
+    // };
 
-    const handleLikeClick = (index) => {
-        setActionStates((prevStates) => {
-            const newStates = [...prevStates];
-            newStates[index].isLikeActive = !newStates[index].isLikeActive;
-            localStorage.setItem('actionStates', JSON.stringify(newStates));
-            return newStates;
-        });
-    };
-    const handleSubmitClick = (index) => {
-        setActionStates((prevStates) => {
-            const newStates = [...prevStates];
-            newStates[index].isSubmitted = !newStates[index].isSubmitted;
-            localStorage.setItem('actionStates', JSON.stringify(newStates));
-            return newStates;
-        });
-    };
+    // const handleLikeClick = (index) => {
+    //     setActionStates((prevStates) => {
+    //         const newStates = [...prevStates];
+    //         newStates[index].isLikeActive = !newStates[index].isLikeActive;
+    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
+    //         return newStates;
+    //     });
+    // };
+    // const handleSubmitClick = (index) => {
+    //     setActionStates((prevStates) => {
+    //         const newStates = [...prevStates];
+    //         newStates[index].isSubmitted = !newStates[index].isSubmitted;
+    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
+    //         return newStates;
+    //     });
+    // };
     useEffect(() => {
         // Load videos from localStorage on compone nt mount
         const storedVideos = JSON.parse(localStorage.getItem('videos')) || [];
@@ -180,15 +180,20 @@ function Home() {
         if (storedStates) {
             setActionStates(storedStates);
         }
-    }, []);
+    }, [actionStates]);
+    // localStorage.clear();
     const renderedVideos = useMemo(() => {
-        const allVideos = [...video.reverse(), ...videos];
+        const allVideos = [...video, ...videos];
+
         return allVideos.map((videoItem, index) => {
             const isFromVideos = index >= video.length; // Kiểm tra phần tử thuộc video hay videos
-            const actualIndex = isFromVideos ? index - video.length : index;
+            // const actualIndex = isFromVideos ? index - video.length : index;
+            const videoId = isFromVideos ? `videos-${videoItem.id}` : `video-${videoItem.id}`;
+            const videoSrc = videoItem.src;
+
             return (
                 <div
-                    key={video.id ? `video-${actualIndex}` : `videos-${actualIndex}`}
+                    key={videoId}
                     className={cx('video-container')}
                     onMouseEnter={(e) => handleMouseEnterVideo(e, index)}
                     onMouseLeave={(e) => handleMouseLeaveVideo(e)}
@@ -200,19 +205,18 @@ function Home() {
                             onClick={() => handleVideoClick(index)}
                             ref={(el) => (videoRefs.current[index] = el)}
                         >
-                            <source src={videoItem.src} type="video/mp4" />
+                            <source src={videoSrc} type="video/mp4" />
                         </video>
                         <ActionItem
-                            key={videoItem.id}
+                            key={videoId}
                             avatars={videoItem.avatars}
                             hearts={videoItem.hearts}
                             likes={videoItem.likes}
                             comments={videoItem.comments}
-                            videoId={videoItem.id}
+                            videoId={videoId} // Gắn tiền tố để phân biệt id
                             shares={videoItem.shares}
-                            isHeartActive={actionStates[actualIndex]?.isHeartActive || false}
-                            isLikeActive={actionStates[actualIndex]?.isLikeActive || false}
-                            isSubmitted={actionStates[index]?.isSubmitted || false}
+                            isForVideos={isFromVideos}
+                            n
                             // onHeartClick={() => handleHeartClick(actualIndex)}
                             // onLikeClick={() => handleLikeClick(actualIndex)}
                             // onSubmitClick={() => handleSubmitClick(index)}
@@ -295,7 +299,6 @@ function Home() {
         isHoveredVolumeIcon,
         isPlaying,
         showIcon,
-        actionStates,
         video,
     ]);
 

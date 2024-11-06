@@ -30,7 +30,6 @@ const ActionItem = ({
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [hearts, setHearts] = useState(initialHearts);
     const [likes, setLikes] = useState(initialLikes);
-
     const saveToLocalStorage = (key, value) => {
         localStorage.setItem(key, JSON.stringify(value));
     };

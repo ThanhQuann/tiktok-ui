@@ -50,7 +50,6 @@ function Content({ activeVideo, videoUrl, coverImg }) {
         setClick(false);
     };
     useEffect(() => {
-        // localStorage.clear();
         const handleScroll = (event) => {
             if (isModal) {
                 event.preventDefault();
