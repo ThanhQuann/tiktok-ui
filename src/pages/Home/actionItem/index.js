@@ -14,63 +14,80 @@ import styles from './ActionItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-const ActionItem = ({ avatars, hearts, comments, likes, shares, videoId }) => {
-    // Trạng thái cho icon và animation
+const ActionItem = ({
+    avatars,
+    hearts: initialHearts,
+    comments,
+    likes: initialLikes,
+    shares,
+    videoId,
+    isForVideos,
+}) => {
     const [isAnimatingHeart, setIsAnimatingHeart] = useState(false);
     const [isAnimatingLike, setIsAnimatingLike] = useState(false);
     const [isHeartActive, setIsHeartActive] = useState(false);
     const [isLikeActive, setIsLikeActive] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [hearts, setHearts] = useState(initialHearts);
+    const [likes, setLikes] = useState(initialLikes);
 
-    // Hàm lưu trạng thái vào localStorage
     const saveToLocalStorage = (key, value) => {
         localStorage.setItem(key, JSON.stringify(value));
     };
 
     // Lấy trạng thái từ localStorage khi component được mount
     useEffect(() => {
-        const savedHeartState = localStorage.getItem(`isHeartActive_${videoId}`);
-        const savedLikeState = localStorage.getItem(`isLikeActive_${videoId}`);
-        const saveSubmitted = localStorage.getItem(`isSubmitted${videoId}`);
+        const savedHeartState = localStorage.getItem(`isHeartActive_${videoId}_${isForVideos ? 'videos' : 'video'}`);
+        const savedLikeState = localStorage.getItem(`isLikeActive_${videoId}_${isForVideos ? 'videos' : 'video'}`);
+        const savedHearts = localStorage.getItem(`hearts_${videoId}_${isForVideos ? 'videos' : 'video'}`);
+        const savedLikes = localStorage.getItem(`likes_${videoId}_${isForVideos ? 'videos' : 'video'}`);
+        const savedSubmitted = localStorage.getItem(`isSubmitted_${videoId}`);
 
         if (savedHeartState !== null) setIsHeartActive(JSON.parse(savedHeartState));
         if (savedLikeState !== null) setIsLikeActive(JSON.parse(savedLikeState));
-        if (saveSubmitted !== null) setIsSubmitted(JSON.parse(saveSubmitted));
-    }, [videoId]);
+        if (savedHearts !== null) setHearts(JSON.parse(savedHearts));
+        if (savedLikes !== null) setLikes(JSON.parse(savedLikes));
+        if (savedSubmitted !== null) setIsSubmitted(JSON.parse(savedSubmitted));
+    }, [videoId, isForVideos]);
+
+    const formatNumber = (number) => {
+        return number > 999999
+            ? parseFloat((number / 1000000).toFixed(1)) + 'M'
+            : number > 9999
+            ? parseFloat((number / 1000).toFixed(1)) + 'K'
+            : number;
+    };
 
     const handleHeartClick = () => {
-        setIsHeartActive((prev) => {
-            const newState = !prev;
-            saveToLocalStorage(`isHeartActive_${videoId}`, newState);
-            return newState;
-        });
+        const newState = !isHeartActive;
+        const newHearts = newState ? hearts + 1 : hearts - 1;
+        setIsHeartActive(newState);
+        setHearts(newHearts);
+        saveToLocalStorage(`isHeartActive_${videoId}_${isForVideos ? 'videos' : 'video'}`, newState);
+        saveToLocalStorage(`hearts_${videoId}_${isForVideos ? 'videos' : 'video'}`, newHearts);
         setIsAnimatingHeart(true);
-        setTimeout(() => setIsAnimatingHeart(false), 500); // Dừng animation sau 0.5 giây
+        setTimeout(() => setIsAnimatingHeart(false), 500);
     };
 
     const handleLikeClick = () => {
-        setIsLikeActive((prev) => {
-            const newState = !prev;
-            saveToLocalStorage(`isLikeActive_${videoId}`, newState);
-            return newState;
-        });
+        const newState = !isLikeActive;
+        const newLikes = newState ? likes + 1 : likes - 1;
+        setIsLikeActive(newState);
+        setLikes(newLikes);
+        saveToLocalStorage(`isLikeActive_${videoId}_${isForVideos ? 'videos' : 'video'}`, newState);
+        saveToLocalStorage(`likes_${videoId}_${isForVideos ? 'videos' : 'video'}`, newLikes);
         setIsAnimatingLike(true);
-        setTimeout(() => setIsAnimatingLike(false), 500); // Dừng animation sau 0.5 giây
+        setTimeout(() => setIsAnimatingLike(false), 500);
     };
     const handleSubmit = () => {
-        setIsSubmitted((prev) => {
-            const newState = !prev;
-            saveToLocalStorage(`isSubmitted${videoId}`, newState);
-            return newState;
-        });
-        setIsSubmitted(!isSubmitted);
+        const newState = !isSubmitted;
+        saveToLocalStorage(`isSubmitted_${videoId}`, newState);
+        setIsSubmitted(newState);
     };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('avatar-wrapper')}>
-                {!avatars || !avatars.src ? (
-                    <></>
-                ) : (
+                {!avatars || !avatars.src ? null : (
                     <img className={cx('avatar-icon')} src={avatars.src} alt={avatars.alt} />
                 )}
                 <button onClick={handleSubmit} className={cx('submit', { submitted: isSubmitted })}>
@@ -81,28 +98,28 @@ const ActionItem = ({ avatars, hearts, comments, likes, shares, videoId }) => {
                 <div className={cx('icon-wrapper', { animate: isAnimatingHeart })}>
                     {isHeartActive ? <HeartActiveIcon /> : <HeartIcon />}
                 </div>
-                <strong className={cx('heart')}>{hearts}</strong>
+                <strong className={cx('heart')}>{formatNumber(hearts)}</strong>
             </div>
 
             <div className={cx('container-wrapper')}>
                 <div className={cx('icon-wrapper')}>
                     <CommentIcon />
                 </div>
-                <strong className={cx('comment')}>{comments}</strong>
+                <strong className={cx('comment')}>{formatNumber(comments)}</strong>
             </div>
 
             <div className={cx('container-wrapper')} onClick={handleLikeClick}>
                 <div className={cx('icon-wrapper', { animate: isAnimatingLike })}>
                     {isLikeActive ? <LikeActionIcon /> : <LikeIcon />}
                 </div>
-                <strong className={cx('like')}>{likes}</strong>
+                <strong className={cx('like')}>{formatNumber(likes)}</strong>
             </div>
 
             <div className={cx('container-wrapper')}>
                 <div className={cx('icon-wrapper')}>
                     <ShareIcon />
                 </div>
-                <strong className={cx('share')}>{shares}</strong>
+                <strong className={cx('share')}>{formatNumber(shares)}</strong>
             </div>
         </div>
     );

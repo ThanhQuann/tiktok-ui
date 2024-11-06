@@ -34,7 +34,6 @@ function Content({ activeVideo, videoUrl, coverImg }) {
             videoRef.current.pause();
         }
     };
-    console.log({ coverImage });
     const handleTextChange = (e) => {
         const inputText = e.target.value;
         setText(inputText.length > maxText ? inputText.slice(0, maxText) : inputText);
@@ -51,6 +50,7 @@ function Content({ activeVideo, videoUrl, coverImg }) {
         setClick(false);
     };
     useEffect(() => {
+        // localStorage.clear();
         const handleScroll = (event) => {
             if (isModal) {
                 event.preventDefault();
@@ -59,6 +59,10 @@ function Content({ activeVideo, videoUrl, coverImg }) {
         if (isModal) {
             window.addEventListener('wheel', handleScroll, { passive: false });
         }
+
+        return () => {
+            window.removeEventListener('wheel', handleScroll);
+        };
     }, [isModal]);
 
     const handleFileChange = (event) => {
@@ -72,7 +76,6 @@ function Content({ activeVideo, videoUrl, coverImg }) {
             const seconds = videoDurationInSeconds % 60;
             const formattedDuration = `${minutes}m ${seconds}s`;
             const videoSizeInMB = (file.size / (1024 * 1024)).toFixed(1);
-
             setVideoInfo({
                 name: videoName,
                 duration: formattedDuration,
@@ -84,7 +87,6 @@ function Content({ activeVideo, videoUrl, coverImg }) {
             const videoElement = document.createElement('video');
             videoElement.src = url;
             videoElement.currentTime = 0.001; // Lấy frame ở giây đầu tiên
-
             videoElement.onloadeddata = () => {
                 const canvas = document.createElement('canvas');
                 canvas.width = videoElement.videoWidth;
@@ -99,16 +101,29 @@ function Content({ activeVideo, videoUrl, coverImg }) {
         }
     };
     const handlePostData = () => {
-        // Make API call to upload video and post data
-        console.log('Video URL:', videoURL);
-        console.log('Text:', text);
-        console.log('Selected option:', selectedOption);
+        const existingPosts = JSON.parse(localStorage.getItem('videos')) || [];
+        const newId = existingPosts.length > 0 ? existingPosts[existingPosts.length - 1].id + 1 : 1;
+        const postData = {
+            id: newId,
+            src: videoURL,
+            author: 'nguyettam',
+            desc: text,
+            music: 'Nhạc nền - gốc',
+            avatars: {
+                src: 'https://media.ngoisao.vn/resize_580/news/2012/6/17/49/e201216209315414fd54a8a5aa14jpg1339897831.jpg',
+                alt: 'Avatar 11',
+            },
+            hearts: 0,
+            comments: 0,
+            likes: 0,
+            shares: 0,
+        };
+        const updatedPosts = [...existingPosts, postData];
+        localStorage.setItem('videos', JSON.stringify(updatedPosts));
         setIsModal(false);
-        document.body.classList.remove('no-scroll');
     };
     const handleActiveModel = () => {
         setIsModal(true);
-        document.body.classList.add('no-scroll');
     };
     useEffect(() => {
         if (!hidden && fileInputRef.current) {
