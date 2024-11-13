@@ -7,7 +7,6 @@ import { FaVolumeUpIcon, FaVolumeMuteIcon, EllipsisIcon, FloatingIcon } from '~/
 import ActionItem from './actionItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
-
 const cx = classNames.bind(styles);
 
 function Home() {
@@ -22,18 +21,6 @@ function Home() {
     const [durations, setDurations] = useState(videos.map(() => 0));
     const [isPlaying, setIsPlaying] = useState(false);
     const [showIcon, setShowIcon] = useState(false);
-
-    const [actionStates, setActionStates] = useState(() => {
-        const storedStates = JSON.parse(localStorage.getItem('actionStates'));
-        return (
-            storedStates ||
-            videos.map(() => ({
-                isHeartActive: false,
-                isLikeActive: false,
-                isSubmitted: false,
-            }))
-        );
-    });
 
     const handleVideoClick = useCallback(
         (index) => {
@@ -127,7 +114,6 @@ function Home() {
             });
         };
     }, []);
-
     const handleMouseEnterVideo = (event, index) => {
         if (event.target.tagName === 'VIDEO') {
             setHoveredIndex(index);
@@ -140,60 +126,23 @@ function Home() {
         }
     };
 
-    // const handleHeartClick = (index) => {
-    //     setActionStates((prevStates) => {
-    //         const newStates = [...prevStates];
-    //         newStates[index].isHeartActive = !newStates[index].isHeartActive;
-    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
-    //         return newStates;
-    //     });
-    // };
-
-    // const handleLikeClick = (index) => {
-    //     setActionStates((prevStates) => {
-    //         const newStates = [...prevStates];
-    //         newStates[index].isLikeActive = !newStates[index].isLikeActive;
-    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
-    //         return newStates;
-    //     });
-    // };
-    // const handleSubmitClick = (index) => {
-    //     setActionStates((prevStates) => {
-    //         const newStates = [...prevStates];
-    //         newStates[index].isSubmitted = !newStates[index].isSubmitted;
-    //         localStorage.setItem('actionStates', JSON.stringify(newStates));
-    //         return newStates;
-    //     });
-    // };
     useEffect(() => {
-        // Load videos from localStorage on compone nt mount
-        const storedVideos = JSON.parse(localStorage.getItem('videos')) || [];
-        setVideo(storedVideos);
-        setVolumes(storedVideos.map(() => 1));
-        setMuted(storedVideos.map(() => false));
-        setCurrentTimes(storedVideos.map(() => 0));
-        setDurations(storedVideos.map(() => 0));
+        // Gửi yêu cầu GET tới backend API
+        fetch('http://localhost:3005/tiktokstudio/videos')
+            .then((response) => response.json()) // Chuyển dữ liệu nhận được từ API thành JSON
+            .then((data) => {
+                setVideo(data); // Lưu mảng video vào state
+            })
+            .catch((error) => {
+                console.error('Error fetching videos:', error);
+            });
     }, []);
-    // Khôi phục trạng thái từ localStorage
-    useEffect(() => {
-        const storedStates = JSON.parse(localStorage.getItem('actionStates'));
-        if (storedStates) {
-            setActionStates(storedStates);
-        }
-    }, [actionStates]);
-    // localStorage.clear();
+    console.log(video);
     const renderedVideos = useMemo(() => {
-        const allVideos = [...video, ...videos];
-
-        return allVideos.map((videoItem, index) => {
-            const isFromVideos = index >= video.length; // Kiểm tra phần tử thuộc video hay videos
-            // const actualIndex = isFromVideos ? index - video.length : index;
-            const videoId = isFromVideos ? `videos-${videoItem.id}` : `video-${videoItem.id}`;
-            const videoSrc = videoItem.src;
-
+        return video.map((videoItem, index) => {
             return (
                 <div
-                    key={videoId}
+                    key={videoItem.id} // Sử dụng videoItem.id thay vì videoItem (đảm bảo là unique)
                     className={cx('video-container')}
                     onMouseEnter={(e) => handleMouseEnterVideo(e, index)}
                     onMouseLeave={(e) => handleMouseLeaveVideo(e)}
@@ -205,21 +154,19 @@ function Home() {
                             onClick={() => handleVideoClick(index)}
                             ref={(el) => (videoRefs.current[index] = el)}
                         >
-                            <source src={videoSrc} type="video/mp4" />
+                            <source src={videoItem.url} type="video/mp4" />
                         </video>
                         <ActionItem
-                            key={videoId}
+                            key={videoItem.id}
                             avatars={videoItem.avatars}
                             hearts={videoItem.hearts}
                             likes={videoItem.likes}
                             comments={videoItem.comments}
-                            videoId={videoId} // Gắn tiền tố để phân biệt id
+                            videoId={videoItem.id}
                             shares={videoItem.shares}
-                            isForVideos={isFromVideos}
-                            n
-                            // onHeartClick={() => handleHeartClick(actualIndex)}
-                            // onLikeClick={() => handleLikeClick(actualIndex)}
-                            // onSubmitClick={() => handleSubmitClick(index)}
+                            isLikeActives={videoItem.isLikeActive}
+                            isHeartActives={videoItem.isHeartActive}
+                            isSubmit={videoItem.isSubmitted}
                         />
                     </div>
                     {showIcon && (
@@ -280,7 +227,7 @@ function Home() {
                         <Link>
                             <h3 className={cx('video-author')}>{videoItem.author}</h3>
                         </Link>
-                        <h1 className={cx('video-desc')}>{videoItem.desc}</h1>
+                        <h1 className={cx('video-desc')}>{videoItem.text}</h1>
                         <p className={cx('video-music')}>{videoItem.music}</p>
                     </div>
                 </div>

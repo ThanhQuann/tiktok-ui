@@ -10,6 +10,7 @@ const routes = {
     analytics: '/tiktokstudio/analytics',
     inspirations: '/tiktokstudio/inspiration',
     unlimitedsounds: '/tiktokstudio/sound-library',
+    uploadVideo:'/tiktokstudio/upload/video',
     create: 'https://www.tiktok.com/creator-academy/',
     feedback: '/tiktokstudio/feedback',
     live: '/live',

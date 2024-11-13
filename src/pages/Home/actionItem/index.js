@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 import {
     AddIcon,
     CommentIcon,
@@ -14,41 +15,36 @@ import styles from './ActionItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-const ActionItem = ({
-    avatars,
-    hearts: initialHearts,
-    comments,
-    likes: initialLikes,
-    shares,
-    videoId,
-    isForVideos,
-}) => {
+const ActionItem = ({ avatars, hearts: initialHearts, comments, likes: initialLikes, shares, videoId, isSubmit,isLikeActives ,isHeartActives }) => {
     const [isAnimatingHeart, setIsAnimatingHeart] = useState(false);
     const [isAnimatingLike, setIsAnimatingLike] = useState(false);
-    const [isHeartActive, setIsHeartActive] = useState(false);
-    const [isLikeActive, setIsLikeActive] = useState(false);
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isHeartActive, setIsHeartActive] = useState(isHeartActives);
+    const [isLikeActive, setIsLikeActive] = useState(isLikeActives);
+    const [isSubmitted, setIsSubmitted] = useState(isSubmit);
     const [hearts, setHearts] = useState(initialHearts);
     const [likes, setLikes] = useState(initialLikes);
-    const saveToLocalStorage = (key, value) => {
-        localStorage.setItem(key, JSON.stringify(value));
-    };
 
-    // Lấy trạng thái từ localStorage khi component được mount
+    const apiUrl = 'http://localhost:3005/tiktokstudio/videos'; // Địa chỉ API của bạn
+    // Gửi yêu cầu PUT tới API khi thay đổi trạng thái
+    const updateVideoData = useCallback(async () => {
+        try {
+            await axios.put(`${apiUrl}/${videoId}`, {
+                hearts,
+                likes,
+                isHeartActive,
+                isLikeActive,
+                isSubmitted,
+            });
+        } catch (error) {
+            console.error('Error updating video data:', error);
+        }
+    }, [videoId, hearts, likes, isHeartActive, isLikeActive, isSubmitted]);
+
+    // Gọi updateVideoData mỗi khi thay đổi trạng thái
     useEffect(() => {
-        const savedHeartState = localStorage.getItem(`isHeartActive_${videoId}_${isForVideos ? 'videos' : 'video'}`);
-        const savedLikeState = localStorage.getItem(`isLikeActive_${videoId}_${isForVideos ? 'videos' : 'video'}`);
-        const savedHearts = localStorage.getItem(`hearts_${videoId}_${isForVideos ? 'videos' : 'video'}`);
-        const savedLikes = localStorage.getItem(`likes_${videoId}_${isForVideos ? 'videos' : 'video'}`);
-        const savedSubmitted = localStorage.getItem(`isSubmitted_${videoId}`);
-
-        if (savedHeartState !== null) setIsHeartActive(JSON.parse(savedHeartState));
-        if (savedLikeState !== null) setIsLikeActive(JSON.parse(savedLikeState));
-        if (savedHearts !== null) setHearts(JSON.parse(savedHearts));
-        if (savedLikes !== null) setLikes(JSON.parse(savedLikes));
-        if (savedSubmitted !== null) setIsSubmitted(JSON.parse(savedSubmitted));
-    }, [videoId, isForVideos]);
-
+        updateVideoData();
+        console.log('updateVideoData');
+    }, [updateVideoData]);
     const formatNumber = (number) => {
         return number > 999999
             ? parseFloat((number / 1000000).toFixed(1)) + 'M'
@@ -62,8 +58,6 @@ const ActionItem = ({
         const newHearts = newState ? hearts + 1 : hearts - 1;
         setIsHeartActive(newState);
         setHearts(newHearts);
-        saveToLocalStorage(`isHeartActive_${videoId}_${isForVideos ? 'videos' : 'video'}`, newState);
-        saveToLocalStorage(`hearts_${videoId}_${isForVideos ? 'videos' : 'video'}`, newHearts);
         setIsAnimatingHeart(true);
         setTimeout(() => setIsAnimatingHeart(false), 500);
     };
@@ -73,22 +67,18 @@ const ActionItem = ({
         const newLikes = newState ? likes + 1 : likes - 1;
         setIsLikeActive(newState);
         setLikes(newLikes);
-        saveToLocalStorage(`isLikeActive_${videoId}_${isForVideos ? 'videos' : 'video'}`, newState);
-        saveToLocalStorage(`likes_${videoId}_${isForVideos ? 'videos' : 'video'}`, newLikes);
         setIsAnimatingLike(true);
         setTimeout(() => setIsAnimatingLike(false), 500);
     };
+
     const handleSubmit = () => {
         const newState = !isSubmitted;
-        saveToLocalStorage(`isSubmitted_${videoId}`, newState);
         setIsSubmitted(newState);
     };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('avatar-wrapper')}>
-                {!avatars || !avatars.src ? null : (
-                    <img className={cx('avatar-icon')} src={avatars.src} alt={avatars.alt} />
-                )}
+                {!avatars ? null : <img className={cx('avatar-icon')} src={avatars} alt={avatars.alt} />}
                 <button onClick={handleSubmit} className={cx('submit', { submitted: isSubmitted })}>
                     {!isSubmitted ? <AddIcon className={cx('add-icon')} /> : <TickIcon className={cx('tick-icon')} />}
                 </button>

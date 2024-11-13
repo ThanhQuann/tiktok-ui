@@ -2,7 +2,7 @@ import { FileIcon, ImageIcon, ResolutionIcon, SnipImgIcon, UploadVideoIcon } fro
 import styles from './Upload.module.scss';
 import classNames from 'classnames/bind';
 import { useRef, useState } from 'react';
-import Content from './Content';
+import Content from './UploadVideo';
 
 const cx = classNames.bind(styles);
 function Upload() {
@@ -11,6 +11,7 @@ function Upload() {
     const [videoInfo, setVideoInfo] = useState('null'); // Trạng thái lưu thông tin video
     const [videoURL, setVideoURL] = useState();
     const [coverImage, setCoverImage] = useState('');
+    const [file, setFile] = useState('')
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -41,6 +42,7 @@ function Upload() {
                 const imageUrl = canvas.toDataURL('image/png');
                 setCoverImage(imageUrl);
             };
+            setFile(file);
         }
     };
     const handleButtonClick = () => {
@@ -101,7 +103,6 @@ function Upload() {
                         </div>
                         <div className={cx('suggest-item')}>
                             <div className={cx('image-sgt')}>
-                                {' '}
                                 <SnipImgIcon />
                             </div>
                             <div className={cx('text-content')}>
@@ -112,7 +113,7 @@ function Upload() {
                     </div>
                 </div>
             ) : (
-                <Content videoUrl={videoURL} coverImg={coverImage} activeVideo={videoInfo} />
+                <Content videoUrl={videoURL} fileStart={file} coverImg={coverImage} activeVideo={videoInfo} />
             )}
         </div>
     );

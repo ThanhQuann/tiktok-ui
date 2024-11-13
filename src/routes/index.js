@@ -16,6 +16,7 @@ import Inspirations from '~/pages/Inspirations';
 import Sounds from '~/pages/Sounds';
 import Feedback from '~/pages/Feedback';
 import HomeUpload from '~/pages/HomeUpload';
+import UploadVideo from '~/pages/UploadVideo';
 const privateRouter = [
     { path: config.routes.upload, component: Upload },
     { path: config.routes.homeUpload, component: HomeUpload },
@@ -35,7 +36,9 @@ const publicRoutes = [
     { path: config.routes.explore, component: Explore },
     { path: config.routes.friend, component: Friend },
     { path: config.routes.live, component: Live },
-    ...privateRouter.map(route => ({ ...route, layout: 'upload' })),
+    { path: config.routes.uploadVideo, component: UploadVideo, layout:null},
+
+    ...privateRouter.map((route) => ({ ...route, layout: 'upload' })),
 ];
 
 export { publicRoutes, privateRouter };
